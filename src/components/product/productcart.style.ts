@@ -3,7 +3,7 @@ import { StyleSheet } from 'react-native';
 export default StyleSheet.create({
   productDescription: {
     fontFamily: 'DM Sans', 
-    fontSize: 13, 
+    fontSize: 15, 
     letterSpacing: 0, 
     color: '#666',
     textAlign: 'center',
