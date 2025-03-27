@@ -29,7 +29,7 @@ const Home: React.FC = () => {
   return (
     <View style={styles.container}>
       {/* Başlık */}
-      <Header title="Passo E-Commerce" />
+      <Header title="Passo E-Commerceeee" />
 
       {/* Arama Çubuğu */}
       <SearchBar onSearch={handleSearch} />
