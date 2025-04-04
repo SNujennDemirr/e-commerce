@@ -12,7 +12,7 @@ export default StyleSheet.create({
         paddingRight: 24,
         paddingBottom: 8,
         paddingLeft: 24,
-        marginTop:10,
+        marginTop:5,
       },
       text: {
         color: '#fff',
