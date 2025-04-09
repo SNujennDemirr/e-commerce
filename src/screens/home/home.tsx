@@ -8,10 +8,10 @@ import styles from './home.style';
 const Home: React.FC = () => {
   
   const [products] = useState([
-    { id: '1', name: 'Bed Room', price: '₺19.000', image: 'f5dc1.png', description:'A description, description, description, de...'},
-    { id: '2', name: 'Child Room', price: '₺29.000', image: 'f5dc1.png', description:'A description, description, description, de...' },
-    { id: '3', name: 'Play Room', price: '₺39.000', image: 'f5dc1.png', description:'A description, description, description, de...'},
-    { id: '4', name: 'Music Room', price: '₺49.000', image: 'f5dc1.png', description:'A description, description, description, de...'},
+    { id: '1', name: 'Bed Room', price: '19.000', image: 'f5dc1.png', description:'A description, description, description, de...'},
+    { id: '2', name: 'Child Room', price: '29.000', image: 'f5dc1.png', description:'A description, description, description, de...' },
+    { id: '3', name: 'Play Room', price: '39.000', image: 'f5dc1.png', description:'A description, description, description, de...'},
+    { id: '4', name: 'Music Room', price: '49.000', image: 'f5dc1.png', description:'A description, description, description, de...'},
   ]);
 
   // Arama işlemi için filtrelenmiş ürünleri tutacağız

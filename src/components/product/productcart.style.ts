@@ -3,7 +3,7 @@ import { StyleSheet } from 'react-native';
 export default StyleSheet.create({
   productCard: {
     width: 200,
-    height: 300, 
+    height: 330, 
     backgroundColor: '#F8F8F8',
     borderRadius: 10,
     padding: 10,
@@ -14,7 +14,7 @@ export default StyleSheet.create({
   },
   priceButton: {
     position: 'absolute',
-    top: 130, // Daha aşağı al
+    top: 170, // Daha aşağı al
     left: '55%', // Ortaya hizala
     transform: [{ translateX: -50 }], // X ekseninde tam ortaya getir
     height: 35,
@@ -46,7 +46,7 @@ export default StyleSheet.create({
   productName: {
     fontSize: 14,
     fontWeight: 'bold',
-    marginTop: 5,
+    marginTop: 18,
   },
   productDescription: {
     fontSize: 15, 
