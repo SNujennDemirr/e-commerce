@@ -1,7 +1,6 @@
-// src/navigation/types.ts
-
+// types.ts
 export type RootStackParamList = {
-    Home: undefined;         
-    ShoppingCart: undefined;  
-  };
-  
+  Home: undefined;
+  ProductDetail: { productId: string };
+  ShoppingCart: undefined;
+};

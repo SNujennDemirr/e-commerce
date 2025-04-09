@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, FlatList } from 'react-native';
+import { View, FlatList, Text } from 'react-native';
 import Header from '../../components/header/header';
 import ProductCard from '../../components/product/productcart';
 import SearchBar from '../../components/searchbar/searchbar';
@@ -8,10 +8,10 @@ import styles from './home.style';
 const Home: React.FC = () => {
   
   const [products] = useState([
-    { id: '1', name: 'Bed Room', price: '19.000', image: 'f5dc1.png', description:'A description, description, description, de...'},
-    { id: '2', name: 'Child Room', price: '29.000', image: 'f5dc1.png',description:'A description, description, description, de...' },
-    { id: '3', name: 'Play Room', price: '39.000', image: 'f5dc1.png' ,description:'A description, description, description, de...'},
-    { id: '4', name: 'Music Room', price: '49.000', image: 'f5dc1.png' ,description:'A description, description, description, de...'},
+    { id: '1', name: 'Bed Room', price: '₺19.000', image: 'f5dc1.png', description:'A description, description, description, de...'},
+    { id: '2', name: 'Child Room', price: '₺29.000', image: 'f5dc1.png', description:'A description, description, description, de...' },
+    { id: '3', name: 'Play Room', price: '₺39.000', image: 'f5dc1.png', description:'A description, description, description, de...'},
+    { id: '4', name: 'Music Room', price: '₺49.000', image: 'f5dc1.png', description:'A description, description, description, de...'},
   ]);
 
   // Arama işlemi için filtrelenmiş ürünleri tutacağız
@@ -25,7 +25,6 @@ const Home: React.FC = () => {
     setFilteredProducts(filtered);
   };
 
-
   return (
     <View style={styles.container}>
       {/* Başlık */}
@@ -33,7 +32,6 @@ const Home: React.FC = () => {
 
       {/* Arama Çubuğu */}
       <SearchBar onSearch={handleSearch} />
-
 
       {/* Ürün Listesi */}
       <View style={styles.productsContainer}>
@@ -46,12 +44,13 @@ const Home: React.FC = () => {
               price={item.price} 
               image={item.image} 
               description={item.description}
+              productId={item.id} // productId'yi doğru şekilde geçiriyorsunuz
             />
           )}
           numColumns={2} // Ürün kartlarını 2 sütun halinde göster
           columnWrapperStyle={{ justifyContent: 'space-around' }} // Kartlar arasında boşluk
+          ListEmptyComponent={<Text>No products found matching your search criteria.</Text>} // Arama sonucu boşsa gösterilecek mesaj
         />
-        
       </View>
     </View>
   );

@@ -1,18 +1,26 @@
 import React from 'react';
 import { View, Text, Image } from 'react-native';
-import styles from './productcart.style';
 import Button from '../button/button';
+import { useNavigation } from '@react-navigation/native';
+import { StackNavigationProp } from '@react-navigation/stack';
+import { RootStackParamList } from '../../navigation/types';
+import styles from './productcart.style'; // Stil dosyasını import ettik
 
 interface ProductCardProps {
   name: string;
   price: string;
-  image: string;
-  description: string;     
+  image: string;  // Dinamik resim yolu
+  description: string;
+  productId: string; // Ürün ID'si
 }
 
-const ProductCard: React.FC<ProductCardProps> = ({ name, price, image ,description}) => {
+type ProductCardNavigationProp = StackNavigationProp<RootStackParamList, 'ProductDetail'>;
+
+const ProductCard: React.FC<ProductCardProps> = ({ name, price, image, description, productId }) => {
+  const navigation = useNavigation<ProductCardNavigationProp>();
+
   const handlePress = () => {
-  
+    navigation.navigate('ProductDetail', { productId });
   };
 
   return (
