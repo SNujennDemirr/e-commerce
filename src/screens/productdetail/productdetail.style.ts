@@ -1,32 +1,30 @@
-// src/screens/productdetail/productdetail.style.ts
+// productdetail.style.ts
 import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 20,
-    alignItems: 'center',
-    backgroundColor: '#fff',
   },
-  productImage: {
-    width: 200,
-    height: 200,
-    marginBottom: 20,
+  backButton: {
+    position: 'absolute',
+    top: 80,
+    left: 10,
+    zIndex: 1, // Butonun diğer içeriklerin üzerinde görünmesini sağlar
   },
-  productName: {
+  backIcon: {
+    width: 40,
+    height: 40,
+  },
+  productTitle: {
     fontSize: 24,
     fontWeight: 'bold',
-    marginBottom: 10,
+    marginVertical: 20,
   },
-  productDescription: {
-    fontSize: 16,
-    color: '#777',
-    marginBottom: 10,
-  },
-  productPrice: {
-    fontSize: 20,
-    fontWeight: 'bold',
-    color: '#e74c3c',
+  productImage: {
+    width: '100%',
+    height: 200,
+    resizeMode: 'contain',
   },
 });
 
