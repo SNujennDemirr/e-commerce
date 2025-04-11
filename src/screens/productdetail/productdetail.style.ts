@@ -8,9 +8,9 @@ const styles = StyleSheet.create({
   },
   backButton: {
     position: 'absolute',
-    top: 80,
+    top: 40,
     left: 10,
-    zIndex: 1, // Butonun diğer içeriklerin üzerinde görünmesini sağlar
+    zIndex: 1, 
   },
   backIcon: {
     width: 40,
@@ -25,6 +25,7 @@ const styles = StyleSheet.create({
     width: '100%',
     height: 200,
     resizeMode: 'contain',
+    marginTop: 60 ,
   },
 });
 
