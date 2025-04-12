@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text, Image } from 'react-native';
 import Button from '../button/button';
 import { useNavigation } from '@react-navigation/native';
-import { NativeStackNavigationProp } from '@react-navigation/native-stack';  // native-stack kullanılmalı
+import { StackNavigationProp } from '@react-navigation/stack';
 import { RootStackParamList } from '../../navigation/types';
 import styles from './productcart.style'; // Stil dosyasını import ettik
 
@@ -14,7 +14,7 @@ interface ProductCardProps {
   productId: string; // Ürün ID'si
 }
 
-type ProductCardNavigationProp = NativeStackNavigationProp<RootStackParamList, 'ProductDetail'>; // NativeStackNavigationProp kullanıyoruz
+type ProductCardNavigationProp = StackNavigationProp<RootStackParamList, 'ProductDetail'>;
 
 const ProductCard: React.FC<ProductCardProps> = ({ name, price, image, description, productId }) => {
   const navigation = useNavigation<ProductCardNavigationProp>();
@@ -30,15 +30,16 @@ const ProductCard: React.FC<ProductCardProps> = ({ name, price, image, descripti
       
       {/* Ürün fiyatı */}
       <View style={styles.priceButton}>
-        <Text style={styles.priceText}>₺{price.toLocaleString()}</Text>
+      <Text style={styles.priceText}>₺{price.toLocaleString()}</Text>
       </View>
 
       {/* Ürün adı */}
       <Text style={styles.productName}>{name}</Text>
       
-      {/* Ürün Açıklaması */}
-      <Text style={styles.productDescription}>{description}</Text>
-      
+    {/* Ürün Açıklaması */}
+    <Text style={styles.productDescription}>{description}</Text>
+    
+
       {/* Buton */}
       <Button title="İncele" onPress={handlePress} />
     </View>
