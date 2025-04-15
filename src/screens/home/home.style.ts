@@ -4,6 +4,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     paddingHorizontal: 10,
+
   },
   
   customText: {
@@ -18,7 +19,6 @@ const styles = StyleSheet.create({
   productsContainer: {
     flexDirection: 'row',
     flexWrap: 'wrap',
-    justifyContent: 'space-around',
     marginTop: 10,
   },
   loadingContainer: {
