@@ -14,11 +14,11 @@ export default StyleSheet.create({
   },
   priceButton: {
     position: 'absolute',
-    top: 170, // Daha aşağı al
-    left: '55%', // Ortaya hizala
+    top: 150,
+    left: '45%', // Ortaya hizala
     transform: [{ translateX: -50 }], // X ekseninde tam ortaya getir
     height: 35,
-    width: 100,
+    width: 130,
     backgroundColor: '#FFFFFF',
     paddingVertical: 4,
     paddingHorizontal: 8,
@@ -34,7 +34,7 @@ export default StyleSheet.create({
   },
   
   priceText: {
-    fontSize: 18,
+    fontSize: 20,
     fontWeight: 'bold',
     color: 'black',
   },

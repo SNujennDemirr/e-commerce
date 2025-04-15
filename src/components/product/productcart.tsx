@@ -4,14 +4,14 @@ import Button from '../button/button';
 import { useNavigation } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { RootStackParamList } from '../../navigation/types';
-import styles from './productcart.style'; // Stil dosyasını import ettik
+import styles from './productcart.style';
 
 interface ProductCardProps {
   name: string;
   price: string;
-  image: string;  // Dinamik resim yolu
+  image: string; 
   description: string;
-  productId: string; // Ürün ID'si
+  productId: string;
 }
 
 type ProductCardNavigationProp = StackNavigationProp<RootStackParamList, 'ProductDetail'>;
@@ -25,22 +25,16 @@ const ProductCard: React.FC<ProductCardProps> = ({ name, price, image, descripti
 
   return (
     <View style={styles.productCard}>
-      {/* Ürün resmi */}
-      <Image source={require('../../assets/img/f5dc1.png')} style={styles.productImage} />
-      
-      {/* Ürün fiyatı */}
+      {/* Dinamik image */}
+      <Image source={{ uri: image }} style={styles.productImage} />
+
       <View style={styles.priceButton}>
-      <Text style={styles.priceText}>₺{price.toLocaleString()}</Text>
+        <Text style={styles.priceText}>₺{price}</Text>
       </View>
 
-      {/* Ürün adı */}
       <Text style={styles.productName}>{name}</Text>
-      
-    {/* Ürün Açıklaması */}
-    <Text style={styles.productDescription}>{description}</Text>
-    
+      <Text style={styles.productDescription} numberOfLines={2}>{description}</Text>
 
-      {/* Buton */}
       <Button title="İncele" onPress={handlePress} />
     </View>
   );

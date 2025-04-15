@@ -1,56 +1,68 @@
-import React, { useState } from 'react';
-import { View, FlatList, Text } from 'react-native';
+import React, { useEffect, useState } from 'react';
+import { View, FlatList, Text, ActivityIndicator } from 'react-native';
 import Header from '../../components/header/header';
 import ProductCard from '../../components/product/productcart';
 import SearchBar from '../../components/searchbar/searchbar';
 import styles from './home.style';
+import { fetchProducts } from '../../services/api'; // API servisinden veri çekeceğiz
+
+interface Product {
+  id: number;
+  title: string;
+  price: number;
+  description: string;
+  images: string[];
+}
 
 const Home: React.FC = () => {
-  
-  const [products] = useState([
-    { id: '1', name: 'Bed Room', price: '19.000', image: 'f5dc1.png', description:'A description, description, description, de...'},
-    { id: '2', name: 'Child Room', price: '29.000', image: 'f5dc1.png', description:'A description, description, description, de...' },
-    { id: '3', name: 'Play Room', price: '39.000', image: 'f5dc1.png', description:'A description, description, description, de...'},
-    { id: '4', name: 'Music Room', price: '49.000', image: 'f5dc1.png', description:'A description, description, description, de...'},
-  ]);
+  const [products, setProducts] = useState<Product[]>([]);
+  const [filteredProducts, setFilteredProducts] = useState<Product[]>([]);
+  const [loading, setLoading] = useState(true);
 
-  // Arama işlemi için filtrelenmiş ürünleri tutacağız
-  const [filteredProducts, setFilteredProducts] = useState(products);
+  useEffect(() => {
+    const getProducts = async () => {
+      const data = await fetchProducts();
+      setProducts(data);
+      setFilteredProducts(data);
+      setLoading(false);
+    };
 
-  // Arama işlemi
+    getProducts();
+  }, []);
+
   const handleSearch = (query: string) => {
     const filtered = products.filter(product =>
-      product.name.toLowerCase().includes(query.toLowerCase())
+      product.title.toLowerCase().includes(query.toLowerCase())
     );
     setFilteredProducts(filtered);
   };
 
   return (
     <View style={styles.container}>
-      {/* Başlık */}
       <Header title="Passo E-Commerceeee" />
-
-      {/* Arama Çubuğu */}
       <SearchBar onSearch={handleSearch} />
 
-      {/* Ürün Listesi */}
       <View style={styles.productsContainer}>
-        <FlatList
-          data={filteredProducts}
-          keyExtractor={(item) => item.id}
-          renderItem={({ item }) => (
-            <ProductCard 
-              name={item.name} 
-              price={item.price} 
-              image={item.image} 
-              description={item.description}
-              productId={item.id} // productId'yi doğru şekilde geçiriyorsunuz
-            />
-          )}
-          numColumns={2} // Ürün kartlarını 2 sütun halinde göster
-          columnWrapperStyle={{ justifyContent: 'space-around' }} // Kartlar arasında boşluk
-          ListEmptyComponent={<Text>No products found matching your search criteria.</Text>} // Arama sonucu boşsa gösterilecek mesaj
-        />
+        {loading ? (
+          <ActivityIndicator size="large" color="#000" />
+        ) : (
+          <FlatList
+            data={filteredProducts}
+            keyExtractor={(item) => item.id.toString()}
+            renderItem={({ item }) => (
+              <ProductCard
+                name={item.title}
+                price={item.price.toString()}
+                image={item.images[0]}
+                description={item.description}
+                productId={item.id.toString()}
+              />
+            )}
+            numColumns={2}
+            columnWrapperStyle={{ justifyContent: 'space-around' }}
+            ListEmptyComponent={<Text>No products found matching your search criteria.</Text>}
+          />
+        )}
       </View>
     </View>
   );
