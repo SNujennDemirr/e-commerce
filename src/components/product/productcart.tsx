@@ -8,10 +8,10 @@ import styles from './productcart.style';
 
 interface ProductCardProps {
   name: string;
-  price: string;
-  image: string; 
+  price: number; // artık string değil, doğrudan number alıyoruz
+  image: string;
   description: string;
-  productId: string;
+  productId: string; //NEDEN STRİGN SORRR ? ? ? 
 }
 
 type ProductCardNavigationProp = StackNavigationProp<RootStackParamList, 'ProductDetail'>;

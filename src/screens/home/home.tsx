@@ -1,65 +1,47 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { View, FlatList, Text, ActivityIndicator } from 'react-native';
-import Header from '../../components/header/header';
-import ProductCard from '../../components/product/productcart';
-import SearchBar from '../../components/searchbar/searchbar';
-import styles from './home.style';
-import { fetchProducts } from '../../services/api'; // API servisinden veri çekeceğiz
 
-interface Product {
-  id: number;
-  title: string;
-  price: number;
-  description: string;
-  images: string[];
-}
+import Header from '../../components/header/header';          // Sayfanın üst kısmındaki başlık
+import ProductCard from '../../components/product/productcart'; // Her ürünün gösterildiği kart
+import SearchBar from '../../components/searchbar/searchbar';   // Arama kutusu
+import styles from './home.style';                             // Sayfa stilleri
+
+import { useProducts } from '../../hooks/useProducts';         // Custom hook’umuzu import ediyoruz
 
 const Home: React.FC = () => {
-  const [products, setProducts] = useState<Product[]>([]);
-  const [filteredProducts, setFilteredProducts] = useState<Product[]>([]);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const getProducts = async () => {
-      const data = await fetchProducts();
-      setProducts(data);
-      setFilteredProducts(data);
-      setLoading(false);
-    };
-
-    getProducts();
-  }, []);
-
-  const handleSearch = (query: string) => {
-    const filtered = products.filter(product =>
-      product.title.toLowerCase().includes(query.toLowerCase())
-    );
-    setFilteredProducts(filtered);
-  };
+  // useProducts custom hook'undan verileri alıyoruz
+  const { products, loading, onSearch } = useProducts();
 
   return (
     <View style={styles.container}>
+      {/* Sayfa başlığı */}
       <Header title="Passo E-Commerceeee" />
-      <SearchBar onSearch={handleSearch} />
 
+      {/* Arama kutusu, input girildiğinde onSearch fonksiyonunu tetikler */}
+      <SearchBar onSearch={onSearch} />
+
+      {/* Ürünlerin listelendiği alan */}
       <View style={styles.productsContainer}>
         {loading ? (
+          // Eğer veriler hala çekiliyorsa spinner göster
           <ActivityIndicator size="large" color="#000" />
         ) : (
+          // FlatList ile ürünleri grid şekilde gösteriyoruz
           <FlatList
-            data={filteredProducts}
-            keyExtractor={(item) => item.id.toString()}
-            renderItem={({ item }) => (
+            data={products} // Listelenecek ürün verisi
+            keyExtractor={(item) => item.id.toString()} // Her ürünün benzersiz anahtarı 
+            renderItem={({ item }) => (  // //item, products içindeki her bir objedir.Her ürün için bir ProductCard render edilir
               <ProductCard
-                name={item.title}
-                price={item.price.toString()}
-                image={item.images[0]}
-                description={item.description}
-                productId={item.id.toString()}
+                name={item.title}                   // Ürün adı
+                price={item.price}       // Fiyat 
+                image={item.images[0]}              // İlk görsel
+                description={item.description}      // Açıklama
+                productId={item.id.toString()}      // Detaya geçerken id lazım  //
+                // //
               />
             )}
-            numColumns={2}
-            columnWrapperStyle={{ justifyContent: 'space-around' }}
+            numColumns={2} // 2 sütunlu grid yapısı
+            columnWrapperStyle={{ justifyContent: 'space-around' }} // Aradaki boşluk
             ListEmptyComponent={<Text>No products found matching your search criteria.</Text>}
           />
         )}
