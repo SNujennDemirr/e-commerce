@@ -12,6 +12,17 @@ export default StyleSheet.create({
     alignItems: 'center',
     position: 'relative',
   },
+  // Favori ikonunun stili
+  favoriteIconContainer: {
+    position: 'absolute',
+    top: 10,
+    left: 10, // Favori ikonunu sola yerleştiriyoruz
+    zIndex: 10,
+  },
+  favoriteIcon: {
+    width: 25,
+    height: 25,
+  },
   priceButton: {
     position: 'absolute',
     top: 150,
@@ -54,5 +65,4 @@ export default StyleSheet.create({
     textAlign: 'center',
     marginVertical: 5,
   },
-
 });
