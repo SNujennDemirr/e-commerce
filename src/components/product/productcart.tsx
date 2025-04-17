@@ -12,7 +12,7 @@ interface ProductCardProps {
   price: number;
   image: string;
   description: string;
-  productId: string; 
+  productId: string;  //NEDENN STRİNGG ? ??
 }
 
 type ProductCardNavigationProp = StackNavigationProp<RootStackParamList, 'ProductDetail'>;
