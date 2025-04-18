@@ -12,7 +12,7 @@ interface ProductCardProps {
   price: number;
   image: string;
   description: string;
-  productId: string;  //NEDENN STRİNGG ? ??
+  productId: string;
 }
 
 type ProductCardNavigationProp = StackNavigationProp<RootStackParamList, 'ProductDetail'>;
@@ -51,8 +51,9 @@ const ProductCard: React.FC<ProductCardProps> = ({ name, price, image, descripti
         <Image
           source={
             favorideMi
-              ? require('../../assets/img/favicon.png')  // Favori olduğunda kırmızı kalp
-              : require('../../assets/img/Vector.png')  // Favori değilse, boş kalp
+            ? require('../../assets/img/Vector.png')  // Favori değilse, boş kalp
+              : require('../../assets/img/favicon.png')  // Favori olduğunda kırmızı kalp
+              
           }
           style={styles.favoriteIcon}
         />
