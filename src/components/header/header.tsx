@@ -1,11 +1,10 @@
 import React from 'react';
 import { View, Text, Image, TouchableOpacity } from 'react-native';
-import { useNavigation } from '@react-navigation/native'; // Burada doğru kütüphane
-import { NativeStackNavigationProp } from '@react-navigation/native-stack'; // Burada native-stack kullanıyoruz
+import { useNavigation } from '@react-navigation/native';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import styles from './header.style';
-import { RootStackParamList } from '../../navigation/types'; // Parametreler için tanımlama
+import { RootStackParamList } from '../../navigation/types';
 
-// Header için tip tanımlaması
 type HeaderNavigationProp = NativeStackNavigationProp<RootStackParamList, 'Home'>;
 
 interface HeaderProps {
@@ -13,26 +12,36 @@ interface HeaderProps {
 }
 
 const Header = ({ title }: HeaderProps) => {
-  // useNavigation ile navigation'ı alıyoruz
   const navigation = useNavigation<HeaderNavigationProp>();
 
   const goToShoppingCart = () => {
     navigation.navigate('ShoppingCart');
   };
 
+  const goToFavorites = () => {
+    navigation.navigate('Favorites');
+  };
+
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>{title}</Text>
-      <TouchableOpacity onPress={goToShoppingCart}>
+      {/* Sol ikon (Favoriler) */}
+      <TouchableOpacity style={styles.sideContainer} onPress={goToFavorites}>
         <Image
-          source={require('../../assets/img/shopping-cart.png')}
-          style={styles.cartIcon}
+          source={require('../../assets/img/Vector.png')}
+          style={styles.leftIcon}
         />
       </TouchableOpacity>
-      <Image
-        source={require('../../assets/img/Vector.png')}
-        style={styles.vectorIcon}
-      />
+
+      {/* Başlık */}
+      <Text style={styles.title}>{title}</Text>
+
+      {/* Sağ ikon (Sepet) */}
+      <TouchableOpacity style={styles.sideContainer} onPress={goToShoppingCart}>
+        <Image
+          source={require('../../assets/img/shopping-cart.png')}
+          style={styles.rightIcon}
+        />
+      </TouchableOpacity>
     </View>
   );
 };

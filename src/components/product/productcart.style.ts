@@ -16,12 +16,12 @@ export default StyleSheet.create({
   favoriteIconContainer: {
     position: 'absolute',
     top: 10,
-    left: 10, // Favori ikonunu sola yerleştiriyoruz
+    right: 10, // Favori ikonunu sola yerleştiriyoruz
     zIndex: 10,
   },
   favoriteIcon: {
-    width: 25,
-    height: 25,
+    width: 35,
+    height: 35,
   },
   priceButton: {
     position: 'absolute',

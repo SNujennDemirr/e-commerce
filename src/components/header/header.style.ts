@@ -1,37 +1,36 @@
-import { StyleSheet, Dimensions } from 'react-native';
-
-const { width, height } = Dimensions.get('window');
+import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
   container: {
-    height: 120,  // Header'ın yüksekliği
+    height: 140,
     flexDirection: 'row',
-    justifyContent: 'space-between', // İkonları sağa ve sola yerleştirir
-    alignItems: 'center', // Yükseklik açısından ortalar
+    alignItems: 'center',
+    justifyContent: 'space-between',
     backgroundColor: '#fff',
     paddingHorizontal: 15,
     borderBottomWidth: 1,
     borderColor: '#ccc',
-    marginTop: 20,
+    paddingTop: 40, // üst boşluk (duruma göre ayarla)
+  },
+  leftIcon: {
+    width: 24,
+    height: 24,
   },
   title: {
-    fontSize: 25,  // Başlık boyutu
+    fontSize: 22,
     fontWeight: '700',
     color: 'black',
-    textAlign: 'center', // Başlığı ortalar
+    textAlign: 'center',
     fontFamily: 'DM Sans',
-    flex: 1, // Başlık alanını doldurur
+    flex: 1,
   },
-  cartIcon: {
+  rightIcon: {
     width: 24,
     height: 24,
   },
-  vectorIcon: {
-    width: 24,
-    height: 24,
-    position: 'absolute', // Vector icon'u absolute konumlandırıyoruz
-    left: 15,
-    bottom: 40,
+  sideContainer: {
+    width: 40, // icon'lara sabit genişlik veriyoruz
+    alignItems: 'center',
   },
 });
 
