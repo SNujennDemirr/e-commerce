@@ -16,18 +16,18 @@ export default StyleSheet.create({
   favoriteIconContainer: {
     position: 'absolute',
     top: 10,
-    right: 10, // Favori ikonunu sola yerleştiriyoruz
+    right: 10, 
     zIndex: 10,
   },
   favoriteIcon: {
-    width: 35,
-    height: 35,
+    width: 25,
+    height: 25,
   },
   priceButton: {
     position: 'absolute',
     top: 150,
-    left: '45%', // Ortaya hizala
-    transform: [{ translateX: -50 }], // X ekseninde tam ortaya getir
+    left: '45%', 
+    transform: [{ translateX: -50 }], 
     height: 35,
     width: 130,
     backgroundColor: '#FFFFFF',

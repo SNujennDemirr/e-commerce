@@ -69,6 +69,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ name, price, image, descripti
       <Text style={styles.productDescription} numberOfLines={2}>{description}</Text>
 
       <Button title="İncele" onPress={handlePress} />
+      
     </View>
   );
 };
