@@ -12,7 +12,7 @@ export default StyleSheet.create({
     alignItems: 'center',
     position: 'relative',
   },
-  // Favori ikonunun stili
+
   favoriteIconContainer: {
     position: 'absolute',
     top: 10,
@@ -20,9 +20,21 @@ export default StyleSheet.create({
     zIndex: 10,
   },
   favoriteIcon: {
-    width: 25,
+    width: 25,  //inactive --
     height: 25,
   },
+  favoriteIconActive: {
+    width:45,
+    height:45,
+  },
+  
+  favoriteIconInactive: {
+    padding: 6,
+    width: 45,
+    height:40,
+  },
+  
+ 
   priceButton: {
     position: 'absolute',
     top: 150,

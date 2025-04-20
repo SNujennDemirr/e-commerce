@@ -15,7 +15,7 @@ const Home: React.FC = () => {
   return (
     <View style={styles.container}>
       {/* Sayfa başlığı */}
-      <Header title="Passo E-Commerceeee" />
+      <Header title="Passo E-Commerce" />
 
       {/* Arama kutusu, input girildiğinde onSearch fonksiyonunu tetikler */}
       <SearchBar onSearch={onSearch} />

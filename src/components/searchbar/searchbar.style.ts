@@ -4,11 +4,11 @@ import { StyleSheet, Dimensions } from 'react-native';
 
 const styles = StyleSheet.create({
   container: {
-    width: '100%',  // SearchBar'ın uzunluğunu %100 yapıyoruz
-    height: 100,  // SearchBar'ın yüksekliğini ekranın %8'ine ayarlıyoruz
+    width: '100%', 
+    height: 100,  
     backgroundColor: '#fff',
     borderRadius: 10,
-    marginTop: 0,  // Header ile arasındaki boşluğu tamamen kaldırıyoruz
+    marginTop: 0,  
     justifyContent: 'center',
     paddingHorizontal: 15,
     position: 'relative',
@@ -23,11 +23,11 @@ const styles = StyleSheet.create({
     
   },
   filterIcon: {
-    width: 24,
-    height: 26,
+    width: 30,
+    height: 30,
     position: 'absolute',
     right: 20,
-    top: 40,  // Icon'u ortalamak için
+    top: 35, 
   
   },
 });

@@ -12,7 +12,7 @@ interface ProductCardProps {
   price: number;
   image: string;
   description: string;
-  productId: string;
+  productId: string; // string ??
 }
 
 type ProductCardNavigationProp = StackNavigationProp<RootStackParamList, 'ProductDetail'>;
@@ -20,15 +20,13 @@ type ProductCardNavigationProp = StackNavigationProp<RootStackParamList, 'Produc
 const ProductCard: React.FC<ProductCardProps> = ({ name, price, image, description, productId }) => {
   const navigation = useNavigation<ProductCardNavigationProp>();
 
-  // Zustand store'dan favori işlemlerini alıyoruz
   const { addFavorite, removeFavorite, isFavorite } = useFavoriteStore();
 
-  const favorideMi = isFavorite(Number(productId)); // Favori olup olmadığını kontrol ediyoruz
+  const favorideMi = isFavorite(Number(productId));
 
-  // Favori butonuna tıklandığında çalışacak fonksiyon
   const handleFavoritePress = () => {
     if (favorideMi) {
-      removeFavorite(Number(productId)); // Favori değilse, favoriye ekliyoruz
+      removeFavorite(Number(productId));
     } else {
       addFavorite({
         id: Number(productId),
@@ -36,7 +34,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ name, price, image, descripti
         price: price,
         description,
         images: [image],
-      }); // Favoriye ekliyoruz
+      });
     }
   };
 
@@ -46,20 +44,20 @@ const ProductCard: React.FC<ProductCardProps> = ({ name, price, image, descripti
 
   return (
     <View style={styles.productCard}>
-      {/* Favori butonu sola alındı */}
       <TouchableOpacity onPress={handleFavoritePress} style={styles.favoriteIconContainer}>
         <Image
           source={
             favorideMi
-            ? require('../../assets/img/Vector.png')  // Favori değilse, boş kalp
-              : require('../../assets/img/favicon.png')  // Favori olduğunda kırmızı kalp
-              
+              ? require('../../assets/img/Vector1.png')  // Favori olduğunda dolu 
+              : require('../../assets/img/favicon.png') // Favori değilse boş
           }
-          style={styles.favoriteIcon}
+          style={[
+            styles.favoriteIcon,
+            favorideMi ? styles.favoriteIconActive : styles.favoriteIconInactive,
+          ]}
         />
       </TouchableOpacity>
 
-      {/* Dinamik image */}
       <Image source={{ uri: image }} style={styles.productImage} />
 
       <View style={styles.priceButton}>
@@ -67,10 +65,11 @@ const ProductCard: React.FC<ProductCardProps> = ({ name, price, image, descripti
       </View>
 
       <Text style={styles.productName}>{name}</Text>
-      <Text style={styles.productDescription} numberOfLines={2}>{description}</Text>
+      <Text style={styles.productDescription} numberOfLines={2}>
+        {description}
+      </Text>
 
-      <Button title="İncele" onPress={handlePress} />
-      
+      <Button title="İnceles" onPress={handlePress} />
     </View>
   );
 };

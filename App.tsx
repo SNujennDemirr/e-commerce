@@ -6,7 +6,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Home from './src/screens/home/home';
 import ProductDetail from './src/screens/productdetail/productdetail';
 import ShoppingCart from './src/screens/shoppingcart/shoppingcart';
-import Favorites from './src/screens/fav/fav'; // ⭐ Favoriler ekranı
+import Favorites from './src/screens/fav/fav';
 
 // Tip tanımlamaları
 import { RootStackParamList } from './src/navigation/types';
@@ -19,7 +19,7 @@ const App = () => {
     <NavigationContainer>
       <Stack.Navigator
         initialRouteName="Home"
-        screenOptions={{ headerShown: false }} // Header'ı kendimiz tasarlıyoruz
+        screenOptions={{ headerShown: false }} //????
       >
         {/* Ana ekran */}
         <Stack.Screen name="Home" component={Home} />
