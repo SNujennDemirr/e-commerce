@@ -19,7 +19,10 @@ export default StyleSheet.create({
     right: 10, 
     zIndex: 10,
   },
-
+  favoriteIcon: {
+    width: 25,  //inactive --
+    height: 25,
+  },
   favoriteIconActive: {
     width:45,
     height:45,
@@ -31,6 +34,7 @@ export default StyleSheet.create({
     height:40,
   },
   
+ 
   priceButton: {
     position: 'absolute',
     top: 150,

@@ -11,6 +11,7 @@ import Favorites from './src/screens/fav/fav';
 // Tip tanımlamaları
 import { RootStackParamList } from './src/navigation/types';
 
+
 // Stack Navigator oluşturuluyor
 const Stack = createNativeStackNavigator<RootStackParamList>();
 

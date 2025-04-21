@@ -18,11 +18,12 @@ const styles = StyleSheet.create({
    
   },
   
-  emptyText: {
-    fontSize: 16,
-    color: '#666',
-    marginTop: 20,
-    textAlign: 'center',
+  emptyImage: {
+    
+  },
+  emptyContainer: {
+    justifyContent:'center',
+    alignItems:'center',
   },
   listContainer: {
     paddingBottom: 36,
