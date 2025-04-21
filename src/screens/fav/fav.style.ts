@@ -16,8 +16,8 @@ const styles = StyleSheet.create({
     marginBottom:20,
     color: '#000',
    
-  
   },
+  
   emptyText: {
     fontSize: 16,
     color: '#666',
@@ -37,6 +37,18 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     position: 'relative'
+  },
+  backButton: {
+    position: 'absolute',
+    top: 80,
+    left: 30,
+    zIndex: 1,
+    width: 44,
+    height: 44,
+  },
+  backIcon: {
+    width: 34,
+    height: 34,
   },
 });
 

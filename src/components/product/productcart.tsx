@@ -4,8 +4,8 @@ import Button from '../button/button';
 import { useNavigation } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { RootStackParamList } from '../../navigation/types';
-import { useFavoriteStore } from '../../store/fav';  // Zustand store'u import ediyoruz
-import styles from './productcart.style';  // Stil dosyasını import ediyoruz
+import { useFavoriteStore } from '../../store/fav';  
+import styles from './productcart.style';  
 
 interface ProductCardProps {
   name: string;
@@ -15,9 +15,9 @@ interface ProductCardProps {
   productId: string; // string ??
 }
 
-type ProductCardNavigationProp = StackNavigationProp<RootStackParamList, 'ProductDetail'>;
+type ProductCardNavigationProp = StackNavigationProp<RootStackParamList, 'ProductDetail'>; //??
 
-const ProductCard: React.FC<ProductCardProps> = ({ name, price, image, description, productId }) => {
+const ProductCard: React.FC<ProductCardProps> = ({ name, price, image, description, productId }) => { //??
   const navigation = useNavigation<ProductCardNavigationProp>();
 
   const { addFavorite, removeFavorite, isFavorite } = useFavoriteStore();
@@ -52,7 +52,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ name, price, image, descripti
               : require('../../assets/img/favicon.png') // Favori değilse boş
           }
           style={[
-            styles.favoriteIcon,
+            
             favorideMi ? styles.favoriteIconActive : styles.favoriteIconInactive,
           ]}
         />
@@ -69,7 +69,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ name, price, image, descripti
         {description}
       </Text>
 
-      <Button title="İnceles" onPress={handlePress} />
+      <Button title="İncele" onPress={handlePress} />
     </View>
   );
 };

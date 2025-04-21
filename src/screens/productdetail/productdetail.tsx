@@ -49,7 +49,7 @@ const ProductDetail: React.FC<ProductDetailProps> = ({ route }) => {
       {/* Geri gitmek için sol üst köşeye konulan buton */}
       <TouchableOpacity style={styles.backButton} onPress={handleGoBack}>
         <Image
-          source={require('../../assets/img/back.png')} // Geri ok ikonu
+          source={require('../../assets/img/back.png')} 
           style={styles.backIcon}
         />
       </TouchableOpacity>
