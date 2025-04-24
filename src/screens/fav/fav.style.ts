@@ -31,8 +31,8 @@ const styles = StyleSheet.create({
   
   },
   productCard: {
-    width: '48%', // Kart genişliğini %48'e ayarladık, böylece 2 sütun oluşturulacak
-    marginBottom: 15, // Kartlar arasında boşluk
+    width: '48%', 
+    marginBottom: 15,
     padding: 10,
     
     justifyContent: 'center',
@@ -41,15 +41,15 @@ const styles = StyleSheet.create({
   },
   backButton: {
     position: 'absolute',
-    top: 80,
-    left: 30,
+    top: 50,
+    left: 10,
     zIndex: 1,
-    width: 44,
-    height: 44,
+    width: 54,
+    height: 45,
   },
   backIcon: {
-    width: 34,
-    height: 34,
+    width: 54,
+    height: 54,
   },
 });
 
