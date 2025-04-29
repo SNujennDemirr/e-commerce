@@ -31,8 +31,8 @@ const styles = StyleSheet.create({
   emptyContainer: {
     justifyContent: 'center',
     alignItems: 'center',
-    position: 'relative', // 💡 bunu ekle
-    flex: 1,              // 💡 ayrıca bu da gerekebilir
+    position: 'relative',
+    flex: 1,              
   },
   
 
@@ -41,14 +41,14 @@ const styles = StyleSheet.create({
     paddingBottom: 36,
   },
 
-  productCard: {
-    width: '48%',
-    marginBottom: 15,
-    padding: 10,
-    justifyContent: 'center', // HOme için verilen düzen de fav kayıyor ? yeni ayarlama yapmak ? 
-    alignItems: 'center',
-    position: 'relative',
-  },
+  // productCard: {
+  //   width: '48%',
+  //   marginBottom: 15,
+  //   padding: 10,
+  //   justifyContent: 'center', // HOme için verilen düzen de fav kayıyor ? yeni ayarlama yapıldı ? 
+  //   alignItems: 'center',
+  //   position: 'relative',
+  // },
 
   // Geri butonu için konum ve boyutlandırma
   backButton: {
@@ -72,9 +72,9 @@ const styles = StyleSheet.create({
     borderRadius: 30,
     backgroundColor: '#D63031',
     position: 'absolute',     
-    bottom: 40,               // güncellendi
+    bottom: 50,               
     alignSelf: 'center',
-    zIndex: 2,                // eklendi
+    zIndex: 2,          
   }, 
 
   buttonText: {

@@ -12,12 +12,12 @@ interface ProductCardProps {
   price: number;
   image: string;
   description: string;
-  productId: string; // string ??
+  productId: string; // string ??  --??
 }
 
-type ProductCardNavigationProp = StackNavigationProp<RootStackParamList, 'ProductDetail'>; //??
+type ProductCardNavigationProp = StackNavigationProp<RootStackParamList, 'ProductDetail'>; //-- 
 
-const ProductCard: React.FC<ProductCardProps> = ({ name, price, image, description, productId }) => { //??
+const ProductCard: React.FC<ProductCardProps> = ({ name, price, image, description, productId }) => { // -
   const navigation = useNavigation<ProductCardNavigationProp>();
 
   const { addFavorite, removeFavorite, isFavorite } = useFavoriteStore();

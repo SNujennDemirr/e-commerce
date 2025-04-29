@@ -53,7 +53,7 @@ import { RootStackParamList } from '../../navigation/types'; // RootStackParamLi
           />
          {/* Ana Sayfaya Dön Butonu */}
          <TouchableOpacity style={styles.button} onPress={handleHomePress}>
-            <Text style={styles.buttonText}>Ana Sayfaya Dön</Text>
+            <Text style={styles.buttonText}>Ana Sayfa </Text>
           </TouchableOpacity>
         </View>
       ) : (
