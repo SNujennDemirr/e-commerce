@@ -2,8 +2,12 @@ import React from 'react';
 import { View, Text, FlatList,TouchableOpacity,Image} from 'react-native';
 import styles from './fav.style';
 import { useFavoriteStore } from '../../store/fav';
-import ProductCard from '../../components/product/productcart'; // Kart component'i
-import { useNavigation } from '@react-navigation/native'; // useNavigation import edilmeli
+import { NativeStackNavigationProp } from '@react-navigation/native-stack'; // NativeStackNavigationProp import et
+
+import ProductCard from '../../components/product/productcart';
+import { useNavigation } from '@react-navigation/native'; 
+import { RootStackParamList } from '../../navigation/types'; // RootStackParamList'i import et
+
 
 
 // const Fav = () => {
@@ -12,7 +16,7 @@ import { useNavigation } from '@react-navigation/native'; // useNavigation impor
 
 //   const renderItem = ({ item }: any) => (
   const Fav = () => {
-    const navigation = useNavigation();
+    const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
   
     // Favori ürünleri store'dan al
     const { favorites } = useFavoriteStore();
@@ -21,7 +25,11 @@ import { useNavigation } from '@react-navigation/native'; // useNavigation impor
       navigation.goBack();
     };
   
-    // Favori ürün kartı 
+    const handleHomePress = () => {
+      navigation.navigate('Home'); // Ana sayfaya git
+    };
+  
+    
     const renderItem = ({ item }: any) => (
     <ProductCard
       name={item.title}
@@ -43,10 +51,12 @@ import { useNavigation } from '@react-navigation/native'; // useNavigation impor
             style={styles.emptyImage}
             resizeMode="contain"
           />
-         
+         {/* Ana Sayfaya Dön Butonu */}
+         <TouchableOpacity style={styles.button} onPress={handleHomePress}>
+            <Text style={styles.buttonText}>Ana Sayfaya Dön</Text>
+          </TouchableOpacity>
         </View>
       ) : (
-     
         <FlatList
           data={favorites}
           keyExtractor={(item) => item.id.toString()}
@@ -57,10 +67,11 @@ import { useNavigation } from '@react-navigation/native'; // useNavigation impor
         />
 
       )}
+      
       {/* Geri butonu */}
-      <TouchableOpacity style={styles.backButton} onPress={handleGoBack}>
+      <TouchableOpacity style={styles.backButton} onPress={() => navigation.goBack()}>
         <Image
-          source={require('../../assets/img/back.png')} 
+          source={require('../../assets/img/back.png')}
           style={styles.backIcon}
         />
       </TouchableOpacity>

@@ -6,7 +6,7 @@ import styles from './productdetail.style';
 import {useProducts} from '../../hooks/useProducts'; // Custom hook: Ürünleri çekmek için
 
 // route tipi: navigation ile gelen parametreleri tipliyoruz
-type ProductDetailRouteProp = RouteProp<RootStackParamList, 'ProductDetail'>;
+type ProductDetailRouteProp = RouteProp<RootStackParamList, 'ProductDetail'>; //sayfalar arası gecis için kullancegiz
 
 interface ProductDetailProps {
   route: ProductDetailRouteProp;
