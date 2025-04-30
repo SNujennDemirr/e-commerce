@@ -26,12 +26,13 @@ export default StyleSheet.create({
   favoriteIconActive: {
     width:45,
     height:45,
+
   },
   
   favoriteIconInactive: {
-    padding: 6,
     width: 45,
-    height:40,
+    height:45,
+    // marginTop:10,
   },
   
  

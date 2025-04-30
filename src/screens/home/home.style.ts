@@ -4,6 +4,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     paddingHorizontal: 10,
+    backgroundColor:'#FFFFFF'
 
   },
   
@@ -11,7 +12,7 @@ const styles = StyleSheet.create({
     fontFamily: 'DM Sans',
     fontWeight: '700',
     fontSize: 16,
-    lineHeight: 20,
+   
     textAlign: 'center',
     flex: 1,
   },

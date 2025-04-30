@@ -36,14 +36,14 @@ import { RootStackParamList } from '../../navigation/types'; // RootStackParamLi
       price={item.price}
       image={item.images[0]} // ilk görsel
       description={item.description}
-      productId={item.id.toString()} // props string ,????
+      productId={item.id.toString()} // idprops string ,????
     />
   );
  
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Favori Ürünler</Text>
+      <Text style={styles.title}>Favoriler</Text>
       {favorites.length === 0 ? (
         <View style={styles.emptyContainer}>
           <Image
@@ -51,9 +51,12 @@ import { RootStackParamList } from '../../navigation/types'; // RootStackParamLi
             style={styles.emptyImage}
             resizeMode="contain"
           />
+          <Text style={styles.favText}>Favori Listeniz Boş </Text>
+           <Text style={styles.imgText}>Beğendiklerinizi Favorilere Ekledikçe Burada
+           Görebileceksiniz </Text>
          {/* Ana Sayfaya Dön Butonu */}
          <TouchableOpacity style={styles.button} onPress={handleHomePress}>
-            <Text style={styles.buttonText}>Ana Sayfa </Text>
+            <Text style={styles.buttonText}>Ana Sayfaya Dön </Text>
           </TouchableOpacity>
         </View>
       ) : (

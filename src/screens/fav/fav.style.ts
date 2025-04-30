@@ -4,7 +4,7 @@ const styles = StyleSheet.create({
   
   container: {
     flex: 1,
-    padding: 16,
+    paddingTop: 130,
     backgroundColor: '#fff',
     justifyContent: 'center',
     alignItems: 'center',
@@ -12,7 +12,7 @@ const styles = StyleSheet.create({
   },
 
   title: {
-    fontSize: 24,
+    fontSize: 20,
     fontWeight: '700',
     color: '#000',
     textAlign: 'center',
@@ -22,9 +22,23 @@ const styles = StyleSheet.create({
 
   //  favori yoksa gösterilecek görselin stili
   emptyImage: {
-    width: 350,
-    height: 380,
-    marginBottom: 40,
+    width: 300,
+    height: 300,
+   
+  },
+  favText: {
+    fontSize: 24,
+    fontWeight: '700',
+    color: '#000',
+    marginBottom:18,
+    
+  
+  },
+  imgText: {
+   fontSize: 16,      
+   textAlign: 'center',
+   color:'#666666',
+  
   },
 
   // Favori yoksa gösterilen container
@@ -35,29 +49,21 @@ const styles = StyleSheet.create({
     flex: 1,              
   },
   
+  
 
   // FlatList için içerik stili
   listContainer: {
     paddingBottom: 36,
   },
 
-  // productCard: {
-  //   width: '48%',
-  //   marginBottom: 15,
-  //   padding: 10,
-  //   justifyContent: 'center', // HOme için verilen düzen de fav kayıyor ? yeni ayarlama yapıldı ? 
-  //   alignItems: 'center',
-  //   position: 'relative',
-  // },
-
   // Geri butonu için konum ve boyutlandırma
   backButton: {
     position: 'absolute',
-    top: 50,
+    top: '9%',
     left: 10,
     zIndex: 1,
     width: 54,
-    height: 45,
+    height: 55,
   },
 
   // Geri butonunun içindeki görsel için stil
@@ -68,23 +74,33 @@ const styles = StyleSheet.create({
 
   button: {
     width: 300,
-    height: 40,
+    height: 50,
     borderRadius: 30,
     backgroundColor: '#D63031',
     position: 'absolute',     
     bottom: 50,               
     alignSelf: 'center',
+    justifyContent:'center' ,
     zIndex: 2,          
   }, 
 
   buttonText: {
     color: '#fff',
-    fontSize: 14,
-    fontWeight: 'bold',
+    fontSize: 18,
     alignSelf: 'center',
-    
-    
+
   },
+
+
+
+  // productCard: {
+  //   width: '48%',
+  //   padding: 10,
+  //   justifyContent: 'center', // HOme için verilen düzen de fav kayıyor ? yeni ayarlama yapıldı ? ------
+  //   alignItems: 'center',
+   
+  // },
+  
 });
 
 export default styles;
