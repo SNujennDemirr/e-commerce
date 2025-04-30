@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, FlatList, Text, ActivityIndicator } from 'react-native';
+import { View, FlatList, Text, ActivityIndicator} from 'react-native';
 
 import Header from '../../components/header/header';          // Sayfanın üst kısmındaki başlık
 import ProductCard from '../../components/product/productcart'; // Her ürünün gösterildiği kart
@@ -31,14 +31,15 @@ const Home: React.FC = () => {
             data={products} // Listelenecek ürün verisi
             keyExtractor={(item) => item.id.toString()} // Her ürünün benzersiz anahtarı 
             renderItem={({ item }) => (  // //item, products içindeki her bir objedir.Her ürün için bir ProductCard render edilir
-              <ProductCard
-                name={item.title}                   // Ürün adı
-                price={item.price}       // Fiyat 
-                image={item.images[0]}              // İlk görsel
-                description={item.description}      // Açıklama
-                productId={item.id.toString()}      // Detaya geçerken id lazım  //
-                // //
-              />
+              
+      <ProductCard
+        name={item.title}
+        price={item.price}
+        image={item.images[0]}
+        description={item.description}
+        productId={item.id.toString()}
+      />
+   
             )}
             numColumns={2} // 2 sütunlu grid yapısı
             columnWrapperStyle={{ justifyContent: 'space-around' }} // Aradaki boşluk

@@ -18,8 +18,8 @@ const styles = StyleSheet.create({
   },
   
   productsContainer: {
+    flex:1,
     flexDirection: 'row',
-    flexWrap: 'wrap',
     marginTop: 15,
   },
   loadingContainer: {
