@@ -11,4 +11,4 @@ const ShoppingCart: React.FC = () => {
   );
 };
 
-export default ShoppingCart;
+export default ShoppingCart; //giriş effrd
