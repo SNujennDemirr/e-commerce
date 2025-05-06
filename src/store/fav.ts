@@ -1,4 +1,5 @@
 import { create } from 'zustand';
+//store fav.ts
 
 // Favori ürün tipi
 interface Product {
