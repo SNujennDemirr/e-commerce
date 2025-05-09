@@ -1,9 +1,12 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, Image, ScrollView, ActivityIndicator } from 'react-native';
+import Footer from '../../components/footer/footer'; // footer'ı import ettik
 import { RouteProp, useNavigation } from '@react-navigation/native';
+import { useFavoriteStore } from '../../store/fav';  
 import { RootStackParamList } from '../../navigation/types';
 import styles from './productdetail.style';
 import { useProducts } from '../../hooks/useProducts';
+
 
 type ProductDetailRouteProp = RouteProp<RootStackParamList, 'ProductDetail'>;
 
@@ -20,6 +23,8 @@ const ProductDetail: React.FC<ProductDetailProps> = ({ route }) => {
   const handleGoBack = () => {
     navigation.goBack();
   };
+  
+
 
   if (loading) {
     return <ActivityIndicator size="large" color="#000" />;
@@ -42,6 +47,7 @@ const ProductDetail: React.FC<ProductDetailProps> = ({ route }) => {
       <Text style={styles.productTitle}>{product.title}</Text>
       <Text style={styles.productDescription}>{product.description}</Text>
       {/* <Text style={styles.productPrice}>₺{product.price}</Text> */}
+     <Footer price={product.price} onPress={() => { /* simdi lik bos */ }} />
     </ScrollView>
   );
 };

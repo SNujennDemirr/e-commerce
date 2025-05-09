@@ -36,12 +36,20 @@ const styles = StyleSheet.create({
     marginBottom: 20,
     lineHeight: 22,
   },
+  priceContainer: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    color: '#000',
+    marginBottom: 20,
+  },
+
   productPrice: {
     fontSize: 20,
     fontWeight: 'bold',
     color: '#000',
     marginBottom: 20,
   },
+
 });
 
 export default styles;
