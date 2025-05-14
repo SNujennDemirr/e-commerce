@@ -2,20 +2,21 @@ import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
  footerContainer: {
-  position: 'absolute',
-  bottom: 40,
-  width: '100%',
-  height: 100,
+   position: 'absolute',
+  bottom: 0, // Footer'ı ekranın altına sabitle
+  width: '105%', 
+  height: 120, 
   paddingTop: 24,
-  paddingHorizontal: 16,
+  paddingHorizontal: 16, //sağsol bosluk
   paddingBottom: 32,
-  flexDirection: 'row',
+  flexDirection: 'row', //yan yana 
   justifyContent: 'space-between',
   alignItems: 'center',
-  backgroundColor: '#fffff',
+  backgroundColor: '#fff',
   borderTopWidth: 1,
   borderTopColor: '#ccc',
-  zIndex: 10,
+  zIndex: 10, // sabit
+  margin: 0, 
 },
 
   priceContainer: {

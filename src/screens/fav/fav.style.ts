@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
     top: '10%',
   },
 
-  //  favori yoksa gösterilecek görselin stili
+
   emptyImage: {
     width: 300,
     height: 300,
