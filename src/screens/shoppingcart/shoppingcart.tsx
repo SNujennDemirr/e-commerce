@@ -56,7 +56,8 @@ const ShoppingCart: React.FC = () => {
                 >
                   {item.description}
                 </Text>
-                <Text style={styles.price}>₺{item.price}</Text>
+                <Text style={styles.price}>₺{item.price * item.quantity}</Text>
+
               </View>
 
               {/* Adet kontrolü */}

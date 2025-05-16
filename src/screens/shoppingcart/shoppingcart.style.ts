@@ -94,8 +94,8 @@ export default StyleSheet.create({
   },
   removeContainer: {
     position: 'absolute',
-    right: 12,
-    bottom: 12,
+    right: 20,
+    bottom: -17,
   },
   remove: {
     color: '#4032CF',
