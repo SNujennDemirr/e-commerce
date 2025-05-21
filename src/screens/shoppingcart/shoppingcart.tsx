@@ -1,6 +1,5 @@
 import React from 'react';
 import { View, Text, FlatList, Image, TouchableOpacity } from 'react-native';
-
 import styles from './shoppingcart.style';
 import { useCartStore } from '../../store/cart';
 import Footer from '../../components/footer/footer';
@@ -8,13 +7,14 @@ import Footer from '../../components/footer/footer';
 const ShoppingCart: React.FC = () => {
   const { cartItems, removeFromCart } = useCartStore();
 
-  // Toplam fiyatı hesapla
   const total = cartItems.reduce(
     (sum, item) => sum + item.price * item.quantity,
     0
   );
 
-  // Ürün adedini arttır
+// console.log('Toplam Tutarlar : ₺' + total);
+
+
   const increaseQuantity = (id: number) => {
     const updated = cartItems.map((item) =>
       item.id === id ? { ...item, quantity: item.quantity + 1 } : item
@@ -22,13 +22,12 @@ const ShoppingCart: React.FC = () => {
     useCartStore.setState({ cartItems: updated });
   };
 
-  // Ürün adedini azalt
   const decreaseQuantity = (id: number) => {
     const item = cartItems.find((i) => i.id === id);
     if (!item || item.quantity <= 1) return;
 
     const updated = cartItems.map((i) =>
-      i.id === id ? { ...i, quantity: i.quantity - 1 } : i
+      i.id === id ? { ...i, quantity: item.quantity - 1 } : i
     );
     useCartStore.setState({ cartItems: updated });
   };
@@ -43,9 +42,7 @@ const ShoppingCart: React.FC = () => {
         contentContainerStyle={styles.list}
         renderItem={({ item }) => (
           <View style={styles.itemContainer}>
-            {/* Ürün görseli */}
             <Image source={{ uri: item.image }} style={styles.image} />
-
             <View style={styles.infoContainer}>
               <View style={styles.info}>
                 <Text style={styles.name}>{item.title}</Text>
@@ -57,10 +54,8 @@ const ShoppingCart: React.FC = () => {
                   {item.description}
                 </Text>
                 <Text style={styles.price}>₺{item.price * item.quantity}</Text>
-
               </View>
 
-              {/* Adet kontrolü */}
               <View style={styles.quantityContainer}>
                 <TouchableOpacity
                   onPress={() => decreaseQuantity(item.id)}
@@ -79,7 +74,6 @@ const ShoppingCart: React.FC = () => {
                 </TouchableOpacity>
               </View>
 
-              {/* Silme butonu */}
               <TouchableOpacity
                 onPress={() => removeFromCart(item.id)}
                 style={styles.removeContainer}
@@ -91,9 +85,7 @@ const ShoppingCart: React.FC = () => {
         )}
       />
 
-      {/* Footer sabit, toplam fiyat gösterir */}
       <Footer price={total} onPress={() => {}} />
-        
     </View>
   );
 };

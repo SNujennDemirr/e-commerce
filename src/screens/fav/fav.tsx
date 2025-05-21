@@ -1,45 +1,39 @@
 import React from 'react';
-import { View, Text, FlatList,TouchableOpacity,Image} from 'react-native';
+import { View, Text, FlatList, TouchableOpacity, Image } from 'react-native';
 import styles from './fav.style';
 import { useFavoriteStore } from '../../store/fav';
-import { NativeStackNavigationProp } from '@react-navigation/native-stack'; // NativeStackNavigationProp import et
-
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { useNavigation } from '@react-navigation/native';
 import ProductCard from '../../components/product/productcart';
-import { useNavigation } from '@react-navigation/native'; 
-import { RootStackParamList } from '../../navigation/types'; // RootStackParamList'i import et
+import { RootStackParamList } from '../../navigation/types';
 
+const Fav = () => {
+  const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
 
+  const { favorites } = useFavoriteStore();
 
-// const Fav = () => {
-//   const { favorites } = useFavoriteStore(); // Store'dan favorileri al
-  
+  const handleGoBack = () => {
+    navigation.goBack();
+  };
 
-//   const renderItem = ({ item }: any) => (
-  const Fav = () => {
-    const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
-  
-    // Favori ürünleri store'dan al
-    const { favorites } = useFavoriteStore();
-  
-    const handleGoBack = () => {
-      navigation.goBack();
-    };
-  
-    const handleHomePress = () => {
-      navigation.navigate('Home'); // Ana sayfaya git
-    };
-  
-    
-    const renderItem = ({ item }: any) => (
+ // Stack'teki (yıgın sayfa )bütün ekranları temizler  yalnızca 'Home' ekranını getir
+ //gecislerinde sayfalar üst üste gecmedixs 
+  const handleHomePress = () => {
+    navigation.reset({
+      index: 0,
+      routes: [{ name: 'Home' }],
+    });
+  };
+
+  const renderItem = ({ item }: any) => (
     <ProductCard
       name={item.title}
       price={item.price}
-      image={item.images[0]} // ilk görsel
+      image={item.images[0]}
       description={item.description}
-      productId={item.id.toString()} // idprops string ,????
+      productId={item.id.toString()}
     />
   );
- 
 
   return (
     <View style={styles.container}>
@@ -47,16 +41,16 @@ import { RootStackParamList } from '../../navigation/types'; // RootStackParamLi
       {favorites.length === 0 ? (
         <View style={styles.emptyContainer}>
           <Image
-            source={require('../../assets/img/galp.png')} 
+            source={require('../../assets/img/galp.png')}
             style={styles.emptyImage}
             resizeMode="contain"
           />
-          <Text style={styles.favText}>Favori Listeniz Boş </Text>
-           <Text style={styles.imgText}>Beğendiklerinizi Favorilere Ekledikçe Burada
-           Görebileceksiniz </Text>
-         {/* Ana Sayfaya Dön Butonu */}
-         <TouchableOpacity style={styles.button} onPress={handleHomePress}>
-            <Text style={styles.buttonText}>Ana Sayfaya Dön </Text>
+          <Text style={styles.favText}>Favori Listeniz Boş</Text>
+          <Text style={styles.imgText}>
+            Beğendiklerinizi Favorilere Ekledikçe Burada Görebileceksiniz
+          </Text>
+          <TouchableOpacity style={styles.button} onPress={handleHomePress}>
+            <Text style={styles.buttonText}>Ana Sayfaya Dön</Text>
           </TouchableOpacity>
         </View>
       ) : (
@@ -66,13 +60,10 @@ import { RootStackParamList } from '../../navigation/types'; // RootStackParamLi
           renderItem={renderItem}
           contentContainerStyle={styles.listContainer}
           numColumns={2}
-          
         />
-
       )}
-      
-      {/* Geri butonu */}
-      <TouchableOpacity style={styles.backButton} onPress={() => navigation.goBack()}>
+
+      <TouchableOpacity style={styles.backButton} onPress={handleGoBack}>
         <Image
           source={require('../../assets/img/back.png')}
           style={styles.backIcon}
@@ -82,4 +73,4 @@ import { RootStackParamList } from '../../navigation/types'; // RootStackParamLi
   );
 };
 
-export default Fav;
+export default Fav;  

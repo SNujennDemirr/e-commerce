@@ -42,7 +42,7 @@ const Home: React.FC = () => {
    
             )}
             numColumns={2} // 2 sütunlu grid yapısı
-            columnWrapperStyle={{ justifyContent: 'space-around' }} // Aradaki boşluk
+            columnWrapperStyle={{ justifyContent: 'space-around' }} // ürünlerboslk
             ListEmptyComponent={<Text>No products found matching your search criteria.</Text>}
           />
         )}

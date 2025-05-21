@@ -13,7 +13,7 @@ export interface Product {
 
 // useProducts adında özel bir hook oluşturuyoruz
 export const useProducts = () => {
-  const [products, setProducts] = useState<Product[]>([]);             // Tüm ürünleri saklar
+  const [products, setProducts] = useState<Product[]>([]);             // Tüm ürünleri saklar array de tutar 
   const [filteredProducts, setFilteredProducts] = useState<Product[]>([]); // Filtrelenmiş ürünler
   const [loading, setLoading] = useState(true);                        // Yüklenme durumu
   const [searchQuery, setSearchQuery] = useState('');                 // Kullanıcının yazdığı arama metni
@@ -62,3 +62,8 @@ export const useProducts = () => {
     onSearch: handleSearch      // Arama fonksiyonu (component'ten tetiklenir)
   };
 };
+
+
+
+
+
