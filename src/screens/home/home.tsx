@@ -16,7 +16,7 @@ const Home: React.FC = () => {
       {  }
       <Header title="Passo E-Commerce" />
 
-      {/* Arama kutusu, input girildiğinde onSearch fonksiyonunu tetikler */}
+      {   }
       <SearchBar onSearch={onSearch} />
 
       {/* Ürünlerin listelendiği alan */}

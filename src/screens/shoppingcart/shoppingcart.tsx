@@ -3,6 +3,7 @@ import { View, Text, FlatList, Image, TouchableOpacity } from 'react-native';
 import styles from './shoppingcart.style';
 import { useCartStore } from '../../store/cart';
 import Footer from '../../components/footer/footer';
+import Badge from '../../components/badge/Badge';
 
 const ShoppingCart: React.FC = () => {
   const { cartItems, removeFromCart } = useCartStore();
@@ -12,8 +13,7 @@ const ShoppingCart: React.FC = () => {
     0
   );
 
-// console.log('Toplam Tutarlar : ₺' + total);
-
+  const totalItems = cartItems.reduce((sum, item) => sum + item.quantity, 0);
 
   const increaseQuantity = (id: number) => {
     const updated = cartItems.map((item) =>
@@ -84,6 +84,11 @@ const ShoppingCart: React.FC = () => {
           </View>
         )}
       />
+
+      {/* Sepetteki toplam ürün sayısını sol alt köşede badge olarak göster */}
+      <View style={{ position: 'absolute', bottom: 16, left: 16 }}>
+        <Badge count={totalItems} />
+      </View>
 
       <Footer price={total} onPress={() => {}} />
     </View>
