@@ -25,8 +25,8 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   rightIcon: {
-    width: 24,
-    height: 24,
+    width: 30,
+    height: 30,
   },
   sideContainer: {
     width: 40, // icon'lara sabit genişlik veriyoruz

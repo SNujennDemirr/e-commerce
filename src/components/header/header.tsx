@@ -5,6 +5,10 @@ import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import styles from './header.style';
 import { RootStackParamList } from '../../navigation/types';
 
+// 🔽 Sepet verileri için store ve Badge bileşeni eklendi
+import { useCartStore } from '../../store/cart';
+import Badge from '../badge/Badge';
+
 type HeaderNavigationProp = NativeStackNavigationProp<RootStackParamList, 'Home'>;
 
 interface HeaderProps {
@@ -13,6 +17,10 @@ interface HeaderProps {
 
 const Header = ({ title }: HeaderProps) => {
   const navigation = useNavigation<HeaderNavigationProp>();
+
+  // 🔽 Sepetteki toplam ürün sayısını hesapla
+  const { cartItems } = useCartStore();
+  const totalItems = cartItems.reduce((sum, item) => sum + item.quantity, 0);
 
   const goToShoppingCart = () => {
     navigation.navigate('ShoppingCart');
@@ -41,6 +49,11 @@ const Header = ({ title }: HeaderProps) => {
           source={require('../../assets/img/shopping-cart.png')}
           style={styles.rightIcon}
         />
+
+        {/* 🔽 Sepet ikonunun sol alt köşesine Badge yerleştirildi */}
+        <View style={{ position: 'absolute', bottom: -4, left: -4 }}>
+          <Badge count={totalItems} />
+        </View>
       </TouchableOpacity>
     </View>
   );

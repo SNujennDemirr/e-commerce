@@ -15,8 +15,8 @@ const styles = StyleSheet.create({
     height: 44,
   },
   backIcon: {
-    width: 34,
-    height: 34,
+    width: 44,
+    height: 44,
   },
   productImage: {
     width: '100%',

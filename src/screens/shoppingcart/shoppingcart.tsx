@@ -86,7 +86,7 @@ const ShoppingCart: React.FC = () => {
       />
 
       {/* Sepetteki toplam ürün sayısını sol alt köşede badge olarak göster */}
-      <View style={{ position: 'absolute', bottom: 16, left: 16 }}>
+      <View style={{ position: 'absolute', bottom: 16, left: 16, zIndex: 999 }}>
         <Badge count={totalItems} />
       </View>
 

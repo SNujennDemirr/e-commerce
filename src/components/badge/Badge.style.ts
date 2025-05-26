@@ -5,7 +5,7 @@ const styles = StyleSheet.create({
   badge: {
     backgroundColor: 'red',
     borderRadius: 12,
-    minWidth: 24,
+    width: 30,
     height: 24,
     paddingHorizontal: 6,
     justifyContent: 'center',
@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
   text: {
     color: 'white',
     fontWeight: 'bold',
-    fontSize: 14,
+    fontSize: 13,
     textAlign: 'center',
   },
 });
