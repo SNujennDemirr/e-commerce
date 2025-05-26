@@ -17,7 +17,7 @@ const Fav = () => {
   };
 
  // Stack'teki (yıgın sayfa )bütün ekranları temizler  yalnızca 'Home' ekranını getir
- //gecislerinde sayfalar üst üste gecmedixs 
+ //gecislerinde sayfalar üst üste gecmesini önler 
   const handleHomePress = () => {
     navigation.reset({
       index: 0,
