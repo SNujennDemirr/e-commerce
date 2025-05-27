@@ -10,7 +10,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 15,
     borderBottomWidth: 1,
     borderColor: '#ccc',
-    paddingTop: 40, // üst boşluk (duruma göre ayarla)
+    paddingTop: 40,
   },
   leftIcon: {
     width: 24,
@@ -26,10 +26,10 @@ const styles = StyleSheet.create({
   },
   rightIcon: {
     width: 30,
-    height: 30,
+    height: 34,
   },
   sideContainer: {
-    width: 40, // icon'lara sabit genişlik veriyoruz
+    width: 40, 
     alignItems: 'center',
   },
 });
