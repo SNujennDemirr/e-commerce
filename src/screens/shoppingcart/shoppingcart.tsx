@@ -3,7 +3,7 @@ import { View, Text, FlatList, Image, TouchableOpacity } from 'react-native';
 import styles from './shoppingcart.style';
 import { useCartStore } from '../../store/cart';
 import Footer from '../../components/footer/footer';
-import Badge from '../../components/badge/Badge';
+
 
 const ShoppingCart: React.FC = () => {
   const { cartItems, removeFromCart } = useCartStore();
@@ -84,11 +84,11 @@ const ShoppingCart: React.FC = () => {
           </View>
         )}
       />
-
-      {/* Sepetteki toplam ürün sayısını sol alt köşede badge olarak göster */}
+{/* 
+      Sepetteki toplam ürün sayısını  badge olarak göster
       <View style={{ position: 'absolute', bottom: 16, left: 16, zIndex: 999 }}>
         <Badge count={totalItems} />
-      </View>
+      </View> */}
 
       <Footer price={total} onPress={() => {}} />
     </View>

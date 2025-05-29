@@ -3,7 +3,7 @@ import { TextInput, View, Image } from 'react-native';
 import styles from './searchbar.style';
 
 interface SearchBarProps {
-  onSearch: (query: string) => void; 
+  onSearch: (query: string) => void;
 }
 
 const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
@@ -11,8 +11,13 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
 
   const handleChangeText = (text: string) => {
     setQuery(text);
-    onSearch(text); 
-    console.log('filter ', text)
+    onSearch(text);
+    console.log('filter ', text);
+  };
+
+  const clearSearch = () => {
+    setQuery('');
+    onSearch('');
   };
 
   return (
@@ -26,6 +31,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
         value={query}
         onChangeText={handleChangeText}
         placeholder="Ara.."
+         onSubmitEditing={clearSearch} 
       />
     </View>
   );
