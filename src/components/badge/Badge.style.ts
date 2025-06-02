@@ -6,8 +6,8 @@ const styles = StyleSheet.create({
     top:10,
     backgroundColor: 'red',
     borderRadius: 30,
-    width: 25,
-    height: 25,
+    width: 20,
+    height: 20,
     justifyContent: 'center',
     alignItems: 'center',
     
@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
   text: {
     color: 'white',
     fontWeight: 'bold',
-    fontSize: 15,
+    fontSize: 13,
     textAlign: 'center',
   },
 });

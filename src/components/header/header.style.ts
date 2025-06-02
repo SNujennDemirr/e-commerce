@@ -2,7 +2,7 @@ import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
   container: {
-    height: 140,
+    height: 118,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
   },
   rightIcon: {
     width: 30,
-    height: 34,
+    height: 30,
   },
   sideContainer: {
     width: 40, 

@@ -14,20 +14,19 @@ export default StyleSheet.create({
     padding: 36,
     textAlign: 'center',
   },
-    footerFixed: {
+  footerFixed: {
     position: 'absolute',
     bottom: 0,
     left: 0,
     right: 0,
-    backgroundColor: 'white', // Eğer footer şeffaf görünüyorsa bu şart
+    backgroundColor: 'white',
   },
   list: {
     paddingBottom: 100,
   },
   itemContainer: {
-    width: width * 0.9,
     minHeight: 230,
-    borderWidth: 2,
+    borderWidth: 1,
     borderColor: '#4032CF',
     borderRadius: 16,
     alignSelf: 'center',
@@ -44,7 +43,6 @@ export default StyleSheet.create({
     marginRight: 16,
     borderRadius: 8,
     alignSelf: 'center',
-    
   },
   infoContainer: {
     flex: 1,
@@ -68,29 +66,8 @@ export default StyleSheet.create({
     fontSize: 15,
   },
   quantityContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'flex-start',
     marginTop: 10,
-  },
-  quantityButton: {
-    width: 40,
-    height: 40,
-    borderRadius:5,
-    backgroundColor:'rgba(237, 237, 237, 0.92)',
-    justifyContent: 'center',
-    alignItems: 'center',
-    borderColor:'black',
-   
-  },
-  quantityText: {
-    color: 'black',
-    fontSize: 18,
-  },
-  quantityValue: {
-    marginHorizontal: 12,
-    fontSize: 16,
-    fontWeight: '500',
+    // Eski flex yok, çünkü NumericInput kendi içinde flex ayarları var
   },
   removeContainer: {
     position: 'absolute',

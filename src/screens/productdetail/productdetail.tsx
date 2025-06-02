@@ -3,7 +3,7 @@ import { View, Text, TouchableOpacity, Image, ScrollView, ActivityIndicator } fr
 import Footer from '../../components/footer/footer';
 import { RouteProp, useNavigation } from '@react-navigation/native';
 import { RootStackParamList } from '../../navigation/types';
-import styles from './productdetail.style';
+import styles from './Productdetail.style';
 import { useProducts } from '../../hooks/useProducts';
 import { useCartStore } from '../../store/cart';
 

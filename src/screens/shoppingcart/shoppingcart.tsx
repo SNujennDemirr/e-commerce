@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { View, Text, FlatList, Image, TouchableOpacity } from 'react-native';
 import styles from './shoppingcart.style';
 import { useCartStore } from '../../store/cart';
 import Footer from '../../components/footer/footer';
-
+import NumericInput from '../../components/NumericInput/NumericInput';
 
 const ShoppingCart: React.FC = () => {
   const { cartItems, removeFromCart } = useCartStore();
@@ -14,6 +14,10 @@ const ShoppingCart: React.FC = () => {
   );
 
   const totalItems = cartItems.reduce((sum, item) => sum + item.quantity, 0);
+
+  useEffect(() => {
+    console.log('Sepetteki toplam ürün sayısı:', totalItems);
+  }, [totalItems]);
 
   const increaseQuantity = (id: number) => {
     const updated = cartItems.map((item) =>
@@ -28,6 +32,14 @@ const ShoppingCart: React.FC = () => {
 
     const updated = cartItems.map((i) =>
       i.id === id ? { ...i, quantity: item.quantity - 1 } : i
+    );
+    useCartStore.setState({ cartItems: updated });
+  };
+
+  const onChangeQuantity = (id: number, value: number) => {
+    if (value < 1) return; // Minimum 1
+    const updated = cartItems.map((item) =>
+      item.id === id ? { ...item, quantity: value } : item
     );
     useCartStore.setState({ cartItems: updated });
   };
@@ -53,25 +65,16 @@ const ShoppingCart: React.FC = () => {
                 >
                   {item.description}
                 </Text>
-                <Text style={styles.price}>₺{item.price * item.quantity}</Text>
+                <Text style={styles.price}>₺{(item.price * item.quantity).toFixed(2)}</Text>
               </View>
 
               <View style={styles.quantityContainer}>
-                <TouchableOpacity
-                  onPress={() => decreaseQuantity(item.id)}
-                  style={styles.quantityButton}
-                >
-                  <Text style={styles.quantityText}>-</Text>
-                </TouchableOpacity>
+              <NumericInput
+  value={item.quantity}
+  onIncrement={() => increaseQuantity(item.id)}
+  onDecrement={() => decreaseQuantity(item.id)}
+/>
 
-                <Text style={styles.quantityValue}>{item.quantity}</Text>
-
-                <TouchableOpacity
-                  onPress={() => increaseQuantity(item.id)}
-                  style={styles.quantityButton}
-                >
-                  <Text style={styles.quantityText}>+</Text>
-                </TouchableOpacity>
               </View>
 
               <TouchableOpacity
@@ -84,11 +87,6 @@ const ShoppingCart: React.FC = () => {
           </View>
         )}
       />
-{/* 
-      Sepetteki toplam ürün sayısını  badge olarak göster
-      <View style={{ position: 'absolute', bottom: 16, left: 16, zIndex: 999 }}>
-        <Badge count={totalItems} />
-      </View> */}
 
       <Footer price={total} onPress={() => {}} />
     </View>
