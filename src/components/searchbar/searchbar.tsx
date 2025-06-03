@@ -55,26 +55,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
         </View>
       )}
 
-      {/* ✅ Modal bileşeni */}
-      <Modal
-        animationType="slide"
-        transparent={true}
-        visible={modalVisible}
-        onRequestClose={() => setModalVisible(false)}
-      >
-        <View style={styles.modalOverlay}>
-          <View style={styles.modalContent}>
-            <Text style={styles.modalTitle}>Filtre Ayarları</Text>
-            {/* Örnek filtre içerikleri */}
-            <Text>Kategori</Text>
-            <Text>Fiyat Aralığı</Text>
-
-            <TouchableOpacity onPress={() => setModalVisible(false)}>
-              <Text style={{ marginTop: 20, color: 'blue' }}>Kapat</Text>
-            </TouchableOpacity>
-          </View>
-        </View>
-      </Modal>
+    
     </View>
   );
 };

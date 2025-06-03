@@ -1,7 +1,4 @@
 import { StyleSheet, Dimensions } from 'react-native';
-
-
-
 const styles = StyleSheet.create({
   container: {
     width: '100%', 
@@ -28,7 +25,7 @@ const styles = StyleSheet.create({
     height: 30,
     position: 'absolute',
     right: 10,
-    top: 35, 
+    top: 20, 
     
   
   },
