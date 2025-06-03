@@ -15,9 +15,9 @@ const ShoppingCart: React.FC = () => {
 
   const totalItems = cartItems.reduce((sum, item) => sum + item.quantity, 0);
 
-  useEffect(() => {
-    console.log('Sepetteki toplam ürün sayısı:', totalItems);
-  }, [totalItems]);
+  // useEffect(() => {
+  //   console.log('Sepetteki toplam ürün sayısı:', totalItems);
+  // }, [totalItems]);
 
   const increaseQuantity = (id: number) => {
     const updated = cartItems.map((item) =>
@@ -60,12 +60,11 @@ const ShoppingCart: React.FC = () => {
                 <Text style={styles.name}>{item.title}</Text>
                 <Text
                   style={styles.description}
-                  numberOfLines={2}
+                  numberOfLines={2}  
                   ellipsizeMode="tail"
                 >
                   {item.description}
                 </Text>
-                <Text style={styles.price}>₺{(item.price * item.quantity).toFixed(2)}</Text>
               </View>
 
               <View style={styles.quantityContainer}>
@@ -75,6 +74,8 @@ const ShoppingCart: React.FC = () => {
   onDecrement={() => decreaseQuantity(item.id)}
 />
 
+
+  <Text style={styles.price}>{(item.price * item.quantity).toFixed(2)} TL </Text>
               </View>
 
               <TouchableOpacity

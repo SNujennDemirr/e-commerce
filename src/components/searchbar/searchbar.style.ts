@@ -12,6 +12,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     paddingHorizontal: 15,
     position: 'relative',
+    
   },
   input: {
     width: '100%',  
@@ -26,8 +27,9 @@ const styles = StyleSheet.create({
     width: 30,
     height: 30,
     position: 'absolute',
-    right: 30,
+    right: 10,
     top: 35, 
+    
   
   },
   clearButtonContainer: {
@@ -51,6 +53,29 @@ wrapper: {
   width: '100%',
   marginBottom: 20, // alt boşluk veriyoruz
   color:'red'
+},
+modalOverlay: {
+  flex: 1,
+  backgroundColor: 'rgba(0,0,0,0.4)',
+  justifyContent: 'center',
+  alignItems: 'center',
+},
+
+modalContent: {
+  width: '80%',
+  backgroundColor: 'red',
+  borderRadius: 10,
+  padding: 20,
+  elevation: 10,
+  justifyContent:'center',
+  alignItems:'center',
+  
+},
+
+modalTitle: {
+  fontSize: 18,
+  fontWeight: 'bold',
+  marginBottom: 10,
 },
 
 });

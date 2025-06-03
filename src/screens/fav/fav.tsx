@@ -17,7 +17,7 @@ const Fav = () => {
   };
 
  // Stack'teki (yıgın sayfa )bütün ekranları temizler  yalnızca 'Home' ekranını getir
- //gecislerinde sayfalar üst üste gecmesini önler 
+ //gecislerinde sayfalar üst üste gecmedixs 
   const handleHomePress = () => {
     navigation.reset({
       index: 0,
@@ -37,6 +37,7 @@ const Fav = () => {
 
   return (
     <View style={styles.container}>
+      
       <Text style={styles.title}>Favoriler</Text>
       {favorites.length === 0 ? (
         <View style={styles.emptyContainer}>
@@ -60,6 +61,8 @@ const Fav = () => {
           renderItem={renderItem}
           contentContainerStyle={styles.listContainer}
           numColumns={2}
+        
+        showsVerticalScrollIndicator={false}
         />
       )}
 

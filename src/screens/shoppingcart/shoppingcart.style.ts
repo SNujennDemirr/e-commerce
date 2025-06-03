@@ -5,14 +5,15 @@ export default StyleSheet.create({
   container: {
     flex: 1,
     padding: 16,
-    backgroundColor: '#fff',
+    backgroundColor: 'rgb(255, 255, 255)',
     marginTop: 14,
   },
   title: {
     fontSize: 24,
     fontWeight: 'bold',
-    padding: 36,
+    padding: 20,
     textAlign: 'center',
+
   },
   footerFixed: {
     position: 'absolute',
@@ -61,17 +62,20 @@ export default StyleSheet.create({
     marginTop: 4,
   },
   price: {
-    marginTop: 6,
-    color: '#666',
-    fontSize: 15,
-  },
+  marginTop: 16,
+  color: 'rgb(0, 0, 0)',
+  fontSize: 14,
+  fontFamily: 'DMSans',
+  fontWeight:'bold',
+},
+
   quantityContainer: {
     marginTop: 10,
     // Eski flex yok, çünkü NumericInput kendi içinde flex ayarları var
   },
   removeContainer: {
     position: 'absolute',
-    right: 20,
+    right: 10,
     bottom: -17,
   },
   remove: {
