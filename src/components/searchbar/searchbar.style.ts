@@ -30,6 +30,29 @@ const styles = StyleSheet.create({
     top: 35, 
   
   },
+clearButtonContainer: {
+    flexDirection: 'row',
+    justifyContent: 'flex-end',
+    marginTop: 5,
+    paddingHorizontal: 10,
+  },
+  clearButton: {
+
+    borderRadius: 6,
+    paddingHorizontal: 8,
+    paddingVertical: 4,
+  },
+  clearText: {
+    color: 'rgba(64, 50, 207, 1)',
+    fontSize: 15,
+    fontWeight: '500',
+  },
+wrapper: {
+  width: '100%',
+  marginBottom: 20, // alt boşluk veriyoruz
+  color:'red'
+},
+
 });
 
 export default styles;

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { TextInput, View, Image } from 'react-native';
+import { TextInput, View, Image, TouchableOpacity, Text } from 'react-native';
 import styles from './searchbar.style';
 
 interface SearchBarProps {
@@ -31,8 +31,15 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
         value={query}
         onChangeText={handleChangeText}
         placeholder="Ara.."
-         onSubmitEditing={clearSearch} 
+        onSubmitEditing={clearSearch}
       />
+      {query.length > 0 && (
+        <View style={styles.clearButtonContainer}>
+          <TouchableOpacity onPress={clearSearch} style={styles.clearButton}>
+            <Text style={styles.clearText}>Aramayı Temizle</Text>
+          </TouchableOpacity>
+        </View>
+      )}
     </View>
   );
 };
