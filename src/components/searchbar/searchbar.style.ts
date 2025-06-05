@@ -1,4 +1,7 @@
 import { StyleSheet, Dimensions } from 'react-native';
+
+
+
 const styles = StyleSheet.create({
   container: {
     width: '100%', 
@@ -9,7 +12,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     paddingHorizontal: 15,
     position: 'relative',
-    
   },
   input: {
     width: '100%',  
@@ -24,57 +26,10 @@ const styles = StyleSheet.create({
     width: 30,
     height: 30,
     position: 'absolute',
-    right: 10,
-    top: 20, 
-    
+    right: 20,
+    top: 35, 
   
   },
-  clearButtonContainer: {
-    flexDirection: 'row',
-    justifyContent: 'flex-end',
-    marginTop: 5,
-    paddingHorizontal: 10,
-  },
-  clearButton: {
-
-    borderRadius: 6,
-    paddingHorizontal: 8,
-    paddingVertical: 4,
-  },
-  clearText: {
-    color: 'rgba(64, 50, 207, 1)',
-    fontSize: 15,
-    fontWeight: '500',
-  },
-wrapper: {
-  width: '100%',
-  marginBottom: 20, // alt boşluk veriyoruz
-  color:'red'
-},
-modalOverlay: {
-  flex: 1,
-  backgroundColor: 'rgba(0,0,0,0.4)',
-  justifyContent: 'center',
-  alignItems: 'center',
-},
-
-modalContent: {
-  width: '80%',
-  backgroundColor: 'red',
-  borderRadius: 10,
-  padding: 20,
-  elevation: 10,
-  justifyContent:'center',
-  alignItems:'center',
-  
-},
-
-modalTitle: {
-  fontSize: 18,
-  fontWeight: 'bold',
-  marginBottom: 10,
-},
-
 });
 
 export default styles;
