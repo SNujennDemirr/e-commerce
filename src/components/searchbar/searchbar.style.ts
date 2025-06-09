@@ -18,7 +18,7 @@ const styles = StyleSheet.create({
     height: 70,
     borderColor: '#ccc',
     borderWidth: 1,
-    borderRadius: 10,
+    borderRadius: 13,
     paddingHorizontal: 15,
     
   },
@@ -26,8 +26,8 @@ const styles = StyleSheet.create({
     width: 30,
     height: 30,
     position: 'absolute',
-    right: 20,
-    top: 35, 
+    right: 10,
+    top: 20, 
   
   },
 clearButtonContainer: {

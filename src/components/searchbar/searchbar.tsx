@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { TextInput, View, Image, TouchableOpacity, Text } from 'react-native';
 import styles from './searchbar.style';
+import FilterModal from '../../components/Filtermodal/FilterModal';
 
 interface SearchBarProps {
   onSearch: (query: string) => void;
@@ -8,11 +9,11 @@ interface SearchBarProps {
 
 const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
   const [query, setQuery] = useState<string>('');
+  const [filterVisible, setFilterVisible] = useState(false);
 
   const handleChangeText = (text: string) => {
     setQuery(text);
     onSearch(text);
-    console.log('filter ', text);
   };
 
   const clearSearch = () => {
@@ -22,10 +23,15 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
 
   return (
     <View style={styles.container}>
-      <Image 
-        source={require('../../assets/img/filter.png')}
-        style={styles.filterIcon}
-      />
+      {/* Filter Icon */}
+      <TouchableOpacity onPress={() => setFilterVisible(true)}>
+        <Image 
+          source={require('../../assets/img/filter.png')}
+          style={styles.filterIcon}
+        />
+      </TouchableOpacity>
+
+      {/* Search Input */}
       <TextInput
         style={styles.input}
         value={query}
@@ -33,13 +39,19 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
         placeholder="Ara.."
         onSubmitEditing={clearSearch}
       />
+
+      {/* Clear Button */}
       {query.length > 0 && (
-        <View style={styles.clearButtonContainer}>
-          <TouchableOpacity onPress={clearSearch} style={styles.clearButton}>
-            <Text style={styles.clearText}>Aramayı Temizle</Text>
-          </TouchableOpacity>
-        </View>
+        <TouchableOpacity onPress={clearSearch} style={styles.clearButtonContainer}>
+          <Text style={styles.clearText}>Aramayı Temizle</Text>
+        </TouchableOpacity>
       )}
+
+      {/* Filter Modal */}
+      <FilterModal
+        visible={filterVisible}
+        onClose={() => setFilterVisible(false)}
+      />
     </View>
   );
 };
