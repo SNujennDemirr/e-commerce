@@ -3,7 +3,7 @@ import { StyleSheet } from 'react-native';
 const styles = StyleSheet.create({
   wrapper: {
     width: '100%',
-    marginBottom: 20,
+    marginBottom: 10,
   },
   container: {
     width: '100%',
@@ -11,13 +11,13 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     borderRadius: 10,
     marginTop: 0,
-    justifyContent: 'center',
+    justifyContent: 'flex-start',
     position: 'relative',
+    paddingTop:10,
   },
   input: {
     width: '100%',
     height: 75,
-    top: 15,
     borderColor: '#ccc',
     borderWidth: 1,
     borderRadius: 13,
@@ -31,22 +31,23 @@ const styles = StyleSheet.create({
     height: 40,
     justifyContent: 'center',
     alignItems: 'center',
-    zIndex: 10,    
-    
+    zIndex: 10,
   },
   filterIcon: {
     width: 30,
-    height: 32,
+    height: 30,
+    resizeMode: 'contain',
   },
   clearButtonContainer: {
     flexDirection: 'row',
     justifyContent: 'flex-end',
-    marginTop: 20,
+    marginTop: 10,
     paddingHorizontal: 10,
   },
   clearButton: {
     borderRadius: 6,
-    
+    paddingHorizontal: 8,
+    paddingVertical: 4,
   },
   clearText: {
     color: 'rgba(64, 50, 207, 1)',
