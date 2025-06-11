@@ -24,14 +24,20 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
   return (
     <View style={styles.container}>
       {/* Filter Icon */}
-      <TouchableOpacity onPress={() => setFilterVisible(true)}>
-        <Image 
-          source={require('../../assets/img/filter.png')}
-          style={styles.filterIcon}
-        />
-      </TouchableOpacity>
+    <TouchableOpacity
+  onPress={() => {
+    console.log('Filter icon clicked!');
+    setFilterVisible(true);
+  }}
+  style={styles.filterButton} 
+>
+  <Image 
+    source={require('../../assets/img/filter.png')}
+    style={styles.filterIcon}
+  />
+</TouchableOpacity>
 
-      {/* Search Input */}
+      { }
       <TextInput
         style={styles.input}
         value={query}
@@ -40,17 +46,18 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
         onSubmitEditing={clearSearch}
       />
 
-      {/* Clear Button */}
+      { }
       {query.length > 0 && (
         <TouchableOpacity onPress={clearSearch} style={styles.clearButtonContainer}>
           <Text style={styles.clearText}>Aramayı Temizle</Text>
         </TouchableOpacity>
       )}
 
-      {/* Filter Modal */}
+      { }
       <FilterModal
         visible={filterVisible}
         onClose={() => setFilterVisible(false)}
+        
       />
     </View>
   );

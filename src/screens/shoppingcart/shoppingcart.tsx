@@ -16,7 +16,7 @@ const ShoppingCart: React.FC = () => {
   const totalItems = cartItems.reduce((sum, item) => sum + item.quantity, 0);
 
   // useEffect(() => {
-  //   console.log('Sepetteki toplam ürün sayısı:', totalItems);
+  //   console.log('Sepetteki toplam ürüns sayısı:', totalItems);
   // }, [totalItems]);
 
   const increaseQuantity = (id: number) => {

@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
   productsContainer: {
     flex:1,
     flexDirection: 'row',
-    marginTop: 15,
+    marginTop: 20,
   },
   loadingContainer: {
     flexDirection: 'row',

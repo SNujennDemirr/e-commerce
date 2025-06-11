@@ -1,29 +1,29 @@
 import { StyleSheet } from 'react-native';
 
-const styles = StyleSheet.create({
+export default StyleSheet.create({
   backdrop: {
     flex: 1,
-    backgroundColor: 'rgba(0,0,0,0.5)', // Yarı saydam karartma
-    justifyContent: 'flex-end',         // Alttan kayma için
+    backgroundColor: 'rgba(0,0,0,0.5)',
+    justifyContent: 'flex-end', 
   },
   modalContainer: {
-    backgroundColor: 'white',
+    backgroundColor: '#fff',
     padding: 20,
-    borderTopLeftRadius: 20,
-    borderTopRightRadius: 20,
-    maxHeight: '50%', // Sayfanın yarısına kadar kaplar
+    borderTopLeftRadius: 16,
+    borderTopRightRadius: 16,
+    minHeight: '40%',
   },
   title: {
     fontSize: 18,
     fontWeight: 'bold',
+    marginBottom: 12,
   },
   closeButton: {
     marginTop: 20,
+    alignSelf: 'flex-end',
   },
   closeText: {
     color: 'blue',
     fontSize: 16,
   },
 });
-
-export default styles;
