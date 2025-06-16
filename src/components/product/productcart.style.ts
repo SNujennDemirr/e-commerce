@@ -7,10 +7,10 @@ export default StyleSheet.create({
     backgroundColor: '#F8F8F8',
     borderRadius: 10,
     padding: 10,
-    marginBottom: 15,
     justifyContent: 'center',
     alignItems: 'center',
     position: 'relative',
+    marginTop:15,
   },
 
   favoriteIconContainer: {
