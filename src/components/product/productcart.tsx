@@ -5,7 +5,7 @@ import { useNavigation } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { RootStackParamList } from '../../navigation/types';
 import { useFavoriteStore } from '../../store/fav';  
-import styles from './productcart.style';  
+import styles from './ProductCart.style';  
 
 interface ProductCardProps {
   name: string;

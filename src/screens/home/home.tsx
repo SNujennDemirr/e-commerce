@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { View, FlatList, Text, ActivityIndicator } from 'react-native';
 import Header from '../../components/header/header';
-import ProductCard from '../../components/product/productcart';
+import ProductCard from '../../components/Product/ProductCart';
 import SearchBar from '../../components/searchbar/searchbar';
 import styles from './home.style';
 import { useProducts } from '../../hooks/useProducts';

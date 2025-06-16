@@ -4,7 +4,7 @@ import styles from './fav.style';
 import { useFavoriteStore } from '../../store/fav';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { useNavigation } from '@react-navigation/native';
-import ProductCard from '../../components/product/productcart';
+import ProductCard from '../../components/Product/ProductCart';
 import { RootStackParamList } from '../../navigation/types';
 
 const Fav = () => {

@@ -82,7 +82,7 @@ const handleClose = () => {
           {...panResponder.panHandlers}
         >
           <View style={styles.handle} />
-          <Text style={styles.title}>Fiyat Filtrele</Text>
+          <Text style={styles.title}>Filtrele</Text>
 
           <TextInput
             style={styles.input}
