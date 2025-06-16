@@ -3,8 +3,8 @@ import { StyleSheet } from 'react-native';
 const styles = StyleSheet.create({
   backdrop: {
     flex: 1,
-    backgroundColor: 'rgba(0,0,0,0.4)', // Yarı saydam koyu arka plan
-    justifyContent: 'flex-end',         // Modal ekranın altından açılır
+    backgroundColor: 'rgba(0,0,0,0.4)',
+    justifyContent: 'flex-end',         
   },
   modalContainer: {
     backgroundColor: '#fff',
@@ -39,7 +39,7 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     paddingHorizontal: 15,
     paddingVertical: 12,
-    fontSize: 16,
+    fontSize: 16,  
     marginBottom: 15,
   },
   applyButton: {

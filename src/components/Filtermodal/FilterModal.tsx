@@ -29,7 +29,10 @@ useEffect(() => {
   }
 }, [visible]);
 
-
+const handleClose = () => {
+    translateY.setValue(0);
+    onClose();
+  };
   const panResponder = useRef(
     PanResponder.create({
       onStartShouldSetPanResponder: () => true,
