@@ -1,4 +1,5 @@
-import React from 'react';
+// Home.tsx
+import React, { useState } from 'react';
 import { View, FlatList, Text, ActivityIndicator } from 'react-native';
 import Header from '../../components/header/header';
 import ProductCard from '../../components/product/productcart';
@@ -7,12 +8,12 @@ import styles from './home.style';
 import { useProducts } from '../../hooks/useProducts';
 
 const Home: React.FC = () => {
-  const { products, loading, onSearch } = useProducts();
+  const { products, loading, onSearch, onFilter } = useProducts();
 
   return (
     <View style={styles.container}>
       <Header title="Passo E-Commerce" />
-      <SearchBar onSearch={onSearch} />
+      <SearchBar onSearch={onSearch} onFilter={onFilter} />
 
       <View style={styles.productsContainer}>
         {loading ? (

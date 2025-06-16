@@ -1,19 +1,22 @@
 import { StyleSheet } from 'react-native';
 
-export default StyleSheet.create({
+const styles = StyleSheet.create({
   backdrop: {
     flex: 1,
-    backgroundColor: 'rgba(217, 217, 217, 0.5)',
-    justifyContent: 'flex-end',
+    backgroundColor: 'rgba(0,0,0,0.4)', // Yarı saydam koyu arka plan
+    justifyContent: 'flex-end',         // Modal ekranın altından açılır
   },
   modalContainer: {
     backgroundColor: '#fff',
-    borderTopLeftRadius: 30,
-    borderTopRightRadius: 30,
-    paddingHorizontal: 20,
-    paddingTop: 10,
-    paddingBottom: 30,
-    height: 400,
+    padding: 20,
+    borderTopLeftRadius: 16,
+    borderTopRightRadius: 16,
+    minHeight: 250,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: -3 },
+    shadowOpacity: 0.1,
+    shadowRadius: 8,
+    elevation: 10,
   },
   handle: {
     width: 40,
@@ -21,13 +24,36 @@ export default StyleSheet.create({
     backgroundColor: '#ccc',
     borderRadius: 3,
     alignSelf: 'center',
-    marginVertical: 10,
+    marginBottom: 15,
   },
   title: {
-    fontSize: 21,
-    fontWeight: '700',
-    marginBottom: 10,
+    fontSize: 20,
+    fontWeight: '600',
+    marginBottom: 20,
     textAlign: 'center',
-    color:'rgba(214, 48, 49, 1)',
+    color: '#333',
+  },
+  input: {
+    borderWidth: 1,
+    borderColor: '#ddd',
+    borderRadius: 8,
+    paddingHorizontal: 15,
+    paddingVertical: 12,
+    fontSize: 16,
+    marginBottom: 15,
+  },
+  applyButton: {
+    backgroundColor: '#007BFF',
+    paddingVertical: 14,
+    borderRadius: 8,
+    alignItems: 'center',
+    marginTop: 10,
+  },
+  applyText: {
+    color: '#fff',
+    fontSize: 16,
+    fontWeight: '600',
   },
 });
+
+export default styles;

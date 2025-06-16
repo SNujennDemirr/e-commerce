@@ -1,15 +1,34 @@
-import React, { useRef } from 'react';
-import { Modal, View, Text, TouchableOpacity, Animated, PanResponder } from 'react-native';
+import React, { useRef, useState, useEffect } from 'react';
+import {
+  Modal,
+  View,
+  Text,
+  TouchableOpacity,
+  Animated,
+  PanResponder,
+  TextInput,
+} from 'react-native';
 import styles from './FilterModal.style';
 
 interface FilterModalProps {
   visible: boolean;
   onClose: () => void;
-  children?: React.ReactNode;
+  onApplyFilter: (min: number, max: number) => void;
 }
 
-const FilterModal: React.FC<FilterModalProps> = ({ visible, onClose, children }) => {
+const FilterModal: React.FC<FilterModalProps> = ({ visible, onClose, onApplyFilter }) => {
   const translateY = useRef(new Animated.Value(0)).current;
+  const [minPrice, setMinPrice] = useState('');
+  const [maxPrice, setMaxPrice] = useState('');
+
+useEffect(() => {
+  if (visible) {
+    translateY.setValue(0);
+    setMinPrice('');
+    setMaxPrice('');
+  }
+}, [visible]);
+
 
   const panResponder = useRef(
     PanResponder.create({
@@ -25,7 +44,9 @@ const FilterModal: React.FC<FilterModalProps> = ({ visible, onClose, children })
             toValue: 500,
             duration: 300,
             useNativeDriver: true,
-          }).start(onClose);
+          }).start(() => {
+            handleClose();
+          });
         } else {
           Animated.spring(translateY, {
             toValue: 0,
@@ -36,12 +57,21 @@ const FilterModal: React.FC<FilterModalProps> = ({ visible, onClose, children })
     })
   ).current;
 
+  const handleApply = () => {
+    const min = parseFloat(minPrice);
+    const max = parseFloat(maxPrice);
+    if (!isNaN(min) && !isNaN(max)) {
+      onApplyFilter(min, max);
+      handleClose();
+    }
+  };
+
   return (
     <Modal
       animationType="fade"
       transparent={true}
       visible={visible}
-      onRequestClose={onClose}
+      onRequestClose={handleClose}
     >
       <View style={styles.backdrop}>
         <Animated.View
@@ -49,15 +79,29 @@ const FilterModal: React.FC<FilterModalProps> = ({ visible, onClose, children })
           {...panResponder.panHandlers}
         >
           <View style={styles.handle} />
-          {children ? (
-            children
-          ) : (
-            <>
-              <Text style={styles.title}>Filtrele</Text>
-            
-             
-            </>
-          )}
+          <Text style={styles.title}>Fiyat Filtrele</Text>
+
+          <TextInput
+            style={styles.input}
+            placeholder="Min fiyat"
+            keyboardType="numeric"
+            inputMode='numeric'
+            value={minPrice}
+            onChangeText={setMinPrice}
+          />
+
+          <TextInput
+            style={styles.input}
+            placeholder="Max fiyat"
+            keyboardType="numeric"
+            inputMode='numeric'
+            value={maxPrice}
+            onChangeText={setMaxPrice}
+          />
+
+          <TouchableOpacity onPress={handleApply} style={styles.applyButton}>
+            <Text style={styles.applyText}>Filtrele</Text>
+          </TouchableOpacity>
         </Animated.View>
       </View>
     </Modal>

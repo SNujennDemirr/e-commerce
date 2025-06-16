@@ -1,69 +1,75 @@
-// hooks/useProducts.ts
 import { useEffect, useState } from 'react';
-import { fetchProducts } from '../services/api'; // API'den ürün verilerini çeken servis
+import { fetchProducts } from '../services/api'; // API'den ürün verilerini çeken servis 
 
-// API'den gelecek ürünlerin veri yapısını tanımlıyoruz
 export interface Product {
   id: number;
   title: string;
-  price: number; // API'den gelen veri number olarak gelir, ekranda string'e   NEDEEN ? 
+  price: number;
   description: string;
   images: string[];
 }
 
-// useProducts adında özel bir hook oluşturuyoruz
-export const useProducts = () => {
-  const [products, setProducts] = useState<Product[]>([]);             // Tüm ürünleri saklar array de tutar 
-  const [filteredProducts, setFilteredProducts] = useState<Product[]>([]); // Filtrelenmiş ürünler
-  const [loading, setLoading] = useState(true);                        // Yüklenme durumu
-  const [searchQuery, setSearchQuery] = useState('');                 // Kullanıcının yazdığı arama metni
+interface PriceFilter {
+  min?: number;
+  max?: number;
+}
 
-  // Sayfa yüklendiğinde ürünleri API'den çeker
+export const useProducts = () => {
+  const [products, setProducts] = useState<Product[]>([]);
+  const [filteredProducts, setFilteredProducts] = useState<Product[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [searchQuery, setSearchQuery] = useState('');
+  const [priceFilter, setPriceFilter] = useState<PriceFilter>({});
+
   useEffect(() => {
     const getProducts = async () => {
-      const data = await fetchProducts();    // API'den ürünleri çek
-      setProducts(data);                     // Tüm ürünleri kaydet
-      setFilteredProducts(data);             // Filtrelenmiş ürün listesine de ata
-      setLoading(false);                     // Yüklenme tamam
+      const data = await fetchProducts();
+      setProducts(data);
+      setFilteredProducts(data);
+      setLoading(false);
     };
 
     getProducts();
   }, []);
 
-  // Arama inputu değiştiğinde çalışır (debounce uygulanır)
   useEffect(() => {
     const debounceTimer = setTimeout(() => {
-      // Girilen arama 2 karakterden azsa tüm ürünleri göster
-      if (searchQuery.length < 2) {
-        setFilteredProducts(products);
-        return;
+      let filtered = products;
+
+      if (searchQuery.length >= 2) {
+        filtered = filtered.filter((product: Product) =>
+          product.title.toLowerCase().includes(searchQuery.toLowerCase())
+        );
       }
 
-     
-      const filtered = products.filter(product =>
-        product.title.toLowerCase().includes(searchQuery.toLowerCase())
-      );
+      if (priceFilter.min !== undefined) {
+        filtered = filtered.filter((product: Product) => product.price >= priceFilter.min!);
+      }
+
+      if (priceFilter.max !== undefined) {
+        filtered = filtered.filter((product: Product) => product.price <= priceFilter.max!);
+      }
+
       setFilteredProducts(filtered);
-    }, 500); // 500ms debounce süresi
+    }, 500);
 
-    // Yeni karakter girildikçe eski zamanlayıcı temizlenir
     return () => clearTimeout(debounceTimer);
-  }, [searchQuery, products]);
+  }, [searchQuery, priceFilter, products]);
 
-  // Dışarıdan çağrıldığında arama sorgusunu güncelleyen fonksiyon
   const handleSearch = (query: string) => {
-    setSearchQuery(query); // Kullanıcının inputunu güncelle
+    setSearchQuery(query);
   };
 
-  // Hook dışa açılırken bu veriler döndürülür
+  // Fiyat filtresi uygulamak için dışarıdan çağrılacak fonksiyon 
+  // veriyi yönetir filtreleme olayı 
+  const handleFilter = (min: number, max: number) => {
+    setPriceFilter({ min, max });
+  };
+
   return {
-    products: filteredProducts, // Arama sonrası gösterilecek ürünler
-    loading,                    // Yüklenme durumu
-    onSearch: handleSearch      // Arama fonksiyonu (component'ten tetiklenir)
+    products: filteredProducts,
+    loading,
+    onSearch: handleSearch,
+    onFilter: handleFilter,
   };
 };
-
-
-
-
-
