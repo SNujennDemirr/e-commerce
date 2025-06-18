@@ -1,23 +1,29 @@
-import React, { useEffect } from 'react';
-import { View, Text, FlatList, Image, TouchableOpacity } from 'react-native';
+import React from 'react';
+import {
+  View,
+  Text,
+  FlatList,
+  Image,
+  TouchableOpacity,
+} from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import styles from './shoppingcart.style';
 import { useCartStore } from '../../store/cart';
 import Footer from '../../components/footer/footer';
 import NumericInput from '../../components/NumericInput/NumericInput';
+import { RootStackParamList } from '../../navigation/types';
+
+type NavigationProp = NativeStackNavigationProp<RootStackParamList, 'ShoppingCart'>;
 
 const ShoppingCart: React.FC = () => {
+  const navigation = useNavigation<NavigationProp>();
   const { cartItems, removeFromCart } = useCartStore();
 
   const total = cartItems.reduce(
     (sum, item) => sum + item.price * item.quantity,
     0
   );
-
-  const totalItems = cartItems.reduce((sum, item) => sum + item.quantity, 0);
-
-  // useEffect(() => {
-  //   console.log('Sepetteki toplam ürüns sayısı:', totalItems);
-  // }, [totalItems]);
 
   const increaseQuantity = (id: number) => {
     const updated = cartItems.map((item) =>
@@ -36,13 +42,14 @@ const ShoppingCart: React.FC = () => {
     useCartStore.setState({ cartItems: updated });
   };
 
-  const onChangeQuantity = (id: number, value: number) => {
-    if (value < 1) return; // Minimum 1
-    const updated = cartItems.map((item) =>
-      item.id === id ? { ...item, quantity: value } : item
-    );
-    useCartStore.setState({ cartItems: updated });
+  const handleGoBack = () => {
+    navigation.goBack();
   };
+const handleHomePress = () => {
+  navigation.navigate('Home');
+};
+
+  
 
   return (
     <View style={styles.container}>
@@ -60,7 +67,7 @@ const ShoppingCart: React.FC = () => {
                 <Text style={styles.name}>{item.title}</Text>
                 <Text
                   style={styles.description}
-                  numberOfLines={2}  
+                  numberOfLines={2}
                   ellipsizeMode="tail"
                 >
                   {item.description}
@@ -68,14 +75,22 @@ const ShoppingCart: React.FC = () => {
               </View>
 
               <View style={styles.quantityContainer}>
-              <NumericInput
-  value={item.quantity}
-  onIncrement={() => increaseQuantity(item.id)}
-  onDecrement={() => decreaseQuantity(item.id)}
-/>
+                <NumericInput
+                  value={item.quantity}
+                  onIncrement={() => increaseQuantity(item.id)}
+                  onDecrement={() => decreaseQuantity(item.id)}
+                />
 
+                <TouchableOpacity style={styles.backButton} onPress={handleGoBack}>
+                  <Image
+                    source={require('../../assets/img/back.png')}
+                    style={styles.backIcon}
+                  />
+                </TouchableOpacity>
 
-  <Text style={styles.price}>{(item.price * item.quantity).toFixed(2)} TL </Text>
+                <Text style={styles.price}>
+                  {(item.price * item.quantity).toFixed(2)} TL
+                </Text>
               </View>
 
               <TouchableOpacity
@@ -89,7 +104,7 @@ const ShoppingCart: React.FC = () => {
         )}
       />
 
-      <Footer price={total} onPress={() => {}} />
+      <Footer price={total} onPress={handleHomePress} />
     </View>
   );
 };

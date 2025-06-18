@@ -1,0 +1,9 @@
+# Query: editor.
+# ContextLines: 1
+
+1 result - 1 file
+
+~/Library/Application Support/Code/User/settings.json:
+  4      "git.suggestSmartCommit": false,
+  5:     "editor.columnSelection": false,
+  6      "git.enableSmartCommit": true

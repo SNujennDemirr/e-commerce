@@ -7,12 +7,7 @@ import Home from './src/screens/home/home';
 import ProductDetail from './src/screens/productdetail/productdetail';
 import ShoppingCart from './src/screens/shoppingcart/shoppingcart';
 import Favorites from './src/screens/fav/fav';
-
-// Tip tanımlamaları
 import { RootStackParamList } from './src/navigation/types';
-
-
-// Stack Navigator oluşturuluyor
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
 const App = () => {
@@ -33,6 +28,7 @@ const App = () => {
         
         {/* Favoriler ekranı */}
         <Stack.Screen name="Favorites" component={Favorites} />
+        
       </Stack.Navigator>
     </NavigationContainer>
   );

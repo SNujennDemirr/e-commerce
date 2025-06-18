@@ -76,11 +76,27 @@ export default StyleSheet.create({
     marginTop: 10,
 
   },
+  
   removeContainer: {
     position: 'absolute',
     right: 10,
     bottom: -17,
   },
+
+backButton: {
+  position: 'absolute',
+  top: 10, // iPhone notch veya status bar için yeterli boşluk
+  left: 10,
+  zIndex: 10,
+  padding: 8,
+},
+
+backIcon: {
+  width: 24,
+  height: 24,
+  resizeMode: 'contain',
+},
+
   remove: {
     color: '#4032CF',
     fontSize: 14,
