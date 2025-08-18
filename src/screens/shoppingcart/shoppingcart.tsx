@@ -45,14 +45,21 @@ const ShoppingCart: React.FC = () => {
   const handleGoBack = () => {
     navigation.goBack();
   };
-const handleHomePress = () => {
-  navigation.navigate('Home');
-};
 
-  
+  const handleHomePress = () => {
+    navigation.navigate('Home');
+  };
 
   return (
     <View style={styles.container}>
+      {/* 🔙 Sol üstte sabit geri butonu */}
+      <TouchableOpacity style={styles.backButton} onPress={handleGoBack}>
+        <Image
+          source={require('../../assets/img/back.png')}
+          style={styles.backIcon}
+        />
+      </TouchableOpacity>
+
       <Text style={styles.title}>Sepet</Text>
 
       <FlatList
@@ -80,14 +87,6 @@ const handleHomePress = () => {
                   onIncrement={() => increaseQuantity(item.id)}
                   onDecrement={() => decreaseQuantity(item.id)}
                 />
-
-                <TouchableOpacity style={styles.backButton} onPress={handleGoBack}>
-                  <Image
-                    source={require('../../assets/img/back.png')}
-                    style={styles.backIcon}
-                  />
-                </TouchableOpacity>
-
                 <Text style={styles.price}>
                   {(item.price * item.quantity).toFixed(2)} TL
                 </Text>

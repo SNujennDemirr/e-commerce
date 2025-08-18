@@ -85,15 +85,17 @@ export default StyleSheet.create({
 
 backButton: {
   position: 'absolute',
-  top: 10, // iPhone notch veya status bar için yeterli boşluk
+  top: 30, 
   left: 10,
   zIndex: 10,
+   width: 50,
+  height: 50,
   padding: 8,
 },
 
 backIcon: {
-  width: 24,
-  height: 24,
+  width: 50,
+  height: 50,
   resizeMode: 'contain',
 },
 
