@@ -23,7 +23,7 @@ const ShoppingCart: React.FC = () => {
   const total = cartItems.reduce(
     (sum, item) => sum + item.price * item.quantity,
     0
-  );
+  );     // deneme 
 
   const increaseQuantity = (id: number) => {
     const updated = cartItems.map((item) =>
